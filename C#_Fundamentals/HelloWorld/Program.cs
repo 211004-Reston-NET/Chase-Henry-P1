@@ -32,6 +32,8 @@ namespace HelloWorld
             int input = int.Parse(Console.ReadLine());
             Console.WriteLine("The number you entered is "+input);
 
+            Collection collectionObj = new Collection();
+
         }
         public static int Example()
         {
