@@ -14,3 +14,6 @@ C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\StoreApp\storeapp\obj
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\StoreApp\storeapp\obj\Debug\net5.0\ref\StoreApp.dll
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\StoreApp\storeapp\obj\Debug\net5.0\StoreApp.pdb
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\StoreApp\storeapp\obj\Debug\net5.0\StoreApp.genruntimeconfig.cache
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\StoreApp\StoreApp\bin\Debug\net5.0\Library.dll
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\StoreApp\StoreApp\bin\Debug\net5.0\Library.pdb
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\StoreApp\StoreApp\obj\Debug\net5.0\StoreApp.csproj.CopyComplete

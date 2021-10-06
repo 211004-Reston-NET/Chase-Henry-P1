@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace Library
 {
@@ -11,15 +12,18 @@ namespace Library
         public string City
         {
             get { return _city; }
-            set 
+            set
             {
                 //Main idea - this Regex will find me any number inside of my string
                 if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
                 {
+                    _city = value;
+                }
+                else
+                {
                     //Will give the user an exception whenever you try to set the city field with a number
                     throw new Exception("City can only hold letters!");
                 }
-                _city = value;
             }
         }
 
