@@ -1,0 +1,131 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "StoreBL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "StoreDL": "1.0.0",
+          "StoreModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/StoreBL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/StoreBL.dll": {}
+        }
+      },
+      "StoreDL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "StoreModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/StoreDL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/StoreDL.dll": {}
+        }
+      },
+      "StoreModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/StoreModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/StoreModels.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "StoreBL/1.0.0": {
+      "type": "project",
+      "path": "../SBL/StoreBL.csproj",
+      "msbuildProject": "../SBL/StoreBL.csproj"
+    },
+    "StoreDL/1.0.0": {
+      "type": "project",
+      "path": "../StoreDL/StoreDL.csproj",
+      "msbuildProject": "../StoreDL/StoreDL.csproj"
+    },
+    "StoreModels/1.0.0": {
+      "type": "project",
+      "path": "../StoreModels/StoreModels.csproj",
+      "msbuildProject": "../StoreModels/StoreModels.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "StoreBL >= 1.0.0",
+      "StoreModels >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Chase\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\Chase\\Documents\\211004-Reston-NET\\C#_Fundamentals\\ProjectZero\\StoreUI\\StoreUI.csproj",
+      "projectName": "StoreUI",
+      "projectPath": "C:\\Users\\Chase\\Documents\\211004-Reston-NET\\C#_Fundamentals\\ProjectZero\\StoreUI\\StoreUI.csproj",
+      "packagesPath": "C:\\Users\\Chase\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Chase\\Documents\\211004-Reston-NET\\C#_Fundamentals\\ProjectZero\\StoreUI\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Chase\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "C:\\Users\\Chase\\Documents\\211004-Reston-NET\\C#_Fundamentals\\ProjectZero\\SBL\\StoreBL.csproj": {
+              "projectPath": "C:\\Users\\Chase\\Documents\\211004-Reston-NET\\C#_Fundamentals\\ProjectZero\\SBL\\StoreBL.csproj"
+            },
+            "C:\\Users\\Chase\\Documents\\211004-Reston-NET\\C#_Fundamentals\\ProjectZero\\StoreModels\\StoreModels.csproj": {
+              "projectPath": "C:\\Users\\Chase\\Documents\\211004-Reston-NET\\C#_Fundamentals\\ProjectZero\\StoreModels\\StoreModels.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

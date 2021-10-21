@@ -1,0 +1,64 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "StoreUI/1.0.0": {
+        "dependencies": {
+          "StoreBL": "1.0.0",
+          "StoreModels": "1.0.0"
+        },
+        "runtime": {
+          "StoreUI.dll": {}
+        }
+      },
+      "StoreBL/1.0.0": {
+        "dependencies": {
+          "StoreDL": "1.0.0",
+          "StoreModels": "1.0.0"
+        },
+        "runtime": {
+          "StoreBL.dll": {}
+        }
+      },
+      "StoreDL/1.0.0": {
+        "dependencies": {
+          "StoreModels": "1.0.0"
+        },
+        "runtime": {
+          "StoreDL.dll": {}
+        }
+      },
+      "StoreModels/1.0.0": {
+        "runtime": {
+          "StoreModels.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "StoreUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StoreBL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StoreDL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StoreModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

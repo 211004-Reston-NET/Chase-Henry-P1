@@ -1,0 +1,146 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using StoreDL;
+using StoreModels;
+
+namespace SBL
+{
+    /// <summary>
+    /// Handles all the business logic for the our restuarant application
+    /// They are in charge of further processing/sanitizing/furthur validation of data
+    /// Any Logic
+    /// </summary>
+    public class StoreBL : IStoreBL
+    {
+        private IRepository _repo;
+        /// <summary>
+        /// We are defining the dependencies this class needs to operate
+        /// We do it this way because we can easily switch out which implementation details we will be using
+        /// But later on the lecture, we can then switch our RRDL project to point to an actual database in the cloud and we don't have to touch anything else to
+        /// have the implementation
+        /// </summary>
+        /// <param name="p_repo">It will pass in a Respository object</param>
+        public StoreBL(IRepository p_repo)
+        {
+            _repo = p_repo;
+        }
+
+        public Store AddStore(Store p_rest)
+        {
+            return _repo.AddStore(p_rest);
+        }
+
+        public List<Store> GetAllStore()
+        {
+            //Maybe my business operation needs to capitalize every name of a restaurant
+            List<Store> listOfStore = _repo.GetAllStore();
+            for (int i = 0; i < listOfStore.Count; i++)
+            {
+                listOfStore[i].Name = listOfStore[i].Name.ToLower(); 
+            }
+
+            return listOfStore;
+        }
+
+        public Customer AddCustomer(Customer p_customer)
+        {
+            return _repo.AddCustomer(p_customer);
+        }
+
+         public List<Customer> GetAllCustomers()
+        {
+            //Maybe my business operation needs to capitalize every name of a restaurant
+            List<Customer> listOfCustomer = _repo.GetAllCustomers();
+            for (int i = 0; i < listOfCustomer.Count; i++)
+            {
+                listOfCustomer[i].Name = listOfCustomer[i].Name.ToLower(); 
+            }
+
+            return listOfCustomer;
+        }
+
+        public StoreFront AddProducts(StoreFront p_products)
+        {
+            return _repo.AddProducts(p_products);
+        }
+
+         public List<StoreFront> GetAllProducts()
+        {
+            //Maybe my business operation needs to capitalize every name of a restaurant
+            List<StoreFront> listOfProducts = _repo.GetAllProducts();
+            for (int i = 0; i < listOfProducts.Count; i++)
+            {
+                listOfProducts[i].Name = listOfProducts[i].Name.ToLower(); 
+            }
+
+            return listOfProducts;
+        }
+
+        public List<Customer> GetCustomer(string p_name)
+        {
+            List<Customer> listOfCustomer = _repo.GetAllCustomers();
+            
+            //Select method will give a list of boolean if the condition was true/false
+            //Where method will give the actual element itself based on some condition
+            //ToList method will convert into List that our method currently needs to return.
+            //ToLower will lowercase the string to make it not case sensitive
+            return listOfCustomer.Where(cust => cust.Name.ToLower().Contains(p_name.ToLower())).ToList();
+        }
+
+        public List<StoreFront> GetAllStoreFronts()
+        {
+            List<StoreFront> listOfStoreFronts = _repo.GetAllStoreFronts();
+            for (int i = 0; i < listOfStoreFronts.Count; i++)
+            {
+                listOfStoreFronts[i].Name = listOfStoreFronts[i].Name.ToLower(); 
+            }
+
+            return listOfStoreFronts;
+        }
+
+        public StoreFront AddStoreFronts(StoreFront p_storefront)
+        {
+            return _repo.AddStoreFronts(p_storefront);
+        }
+
+        public List<StoreFront> GetStoreFront(string p_name)
+        {
+            List<StoreFront> listOfStoreFronts = _repo.GetAllStoreFronts();
+            
+            //Select method will give a list of boolean if the condition was true/false
+            //Where method will give the actual element itself based on some condition
+            //ToList method will convert into List that our method currently needs to return.
+            //ToLower will lowercase the string to make it not case sensitive
+            return listOfStoreFronts.Where(storefront => storefront.Name.ToLower().Contains(p_name.ToLower())).ToList();
+        }
+
+        public List<Orders> GetAllOrders()
+        {
+            List<Orders> listOfOrders = _repo.GetAllOrders();
+            for (int i = 0; i < listOfOrders.Count; i++)
+            {
+                listOfOrders[i].ListOfLineItems = listOfOrders[i].ListOfLineItems.ToLower(); 
+            }
+
+            return listOfOrders;
+        }
+
+        public Orders PlaceOrders(Orders p_orders)
+        {
+            return _repo.PlaceOrders(p_orders);
+        }
+
+        public List<Orders> GetOrders(string p_orders)
+        {
+            List<Orders> listOfOrders = _repo.GetAllOrders();
+            
+            //Select method will give a list of boolean if the condition was true/false
+            //Where method will give the actual element itself based on some condition
+            //ToList method will convert into List that our method currently needs to return.
+            //ToLower will lowercase the string to make it not case sensitive
+            return listOfOrders.Where(orders => orders.ListOfLineItems.ToLower().Contains(p_orders.ToLower())).ToList();
+        }
+
+    }
+}

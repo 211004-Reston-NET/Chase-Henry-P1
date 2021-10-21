@@ -1,0 +1,14 @@
+[
+{
+    "Name": "Test Store",
+    "Address": "Storefront avenue",
+    "ListOfProducts": "prod1, prod2, prod3, prod4",
+    "ListOfOrders": "order1, order2, order3, order4"
+},
+{
+    "Name": "Test Store2",
+    "Address": "Storefront avenue2",
+    "ListOfProducts": "prod1, prod2, prod3, prod4",
+    "ListOfOrders": "order1, order2, order3, order4"
+}
+]

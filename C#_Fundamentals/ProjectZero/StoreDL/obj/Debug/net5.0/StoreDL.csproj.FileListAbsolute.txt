@@ -1,0 +1,15 @@
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\bin\Debug\net5.0\StoreDL.deps.json
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\bin\Debug\net5.0\StoreDL.dll
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\bin\Debug\net5.0\ref\StoreDL.dll
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\bin\Debug\net5.0\StoreDL.pdb
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\bin\Debug\net5.0\StoreModels.dll
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\bin\Debug\net5.0\StoreModels.pdb
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\obj\Debug\net5.0\StoreDL.csproj.AssemblyReference.cache
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\obj\Debug\net5.0\StoreDL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\obj\Debug\net5.0\StoreDL.AssemblyInfoInputs.cache
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\obj\Debug\net5.0\StoreDL.AssemblyInfo.cs
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\obj\Debug\net5.0\StoreDL.csproj.CoreCompileInputs.cache
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\obj\Debug\net5.0\StoreDL.csproj.CopyComplete
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\obj\Debug\net5.0\StoreDL.dll
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\obj\Debug\net5.0\ref\StoreDL.dll
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\obj\Debug\net5.0\StoreDL.pdb
