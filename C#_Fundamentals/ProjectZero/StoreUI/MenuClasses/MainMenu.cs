@@ -1,30 +1,22 @@
 using System;
-using System.Collections.Generic;
-using SBL;
-using StoreModels;
 
 namespace StoreUI
 {
     //The ":" syntax is used to indicate that you will inherit another class, interface, or abstract class
-    public class StorePage : IMenu
+    public class MainMenu : IMenu
     {
         /*
             Since MainMenu has inherited IMenu, it will have all the methods we have created
             in IMenu.
             This is an example of Inheritance, one of the Object Oriented Pillars
         */
-        private IStoreBL _storefrontBL;
-        public StorePage(IStoreBL p_storefrontBL)
-        {
-            _storefrontBL = p_storefrontBL;
-        }
         public void Menu()
         {
-    
-            Console.WriteLine("Store Page");
-            Console.WriteLine("[3] - Place Order");
-            Console.WriteLine("[2] - Replenish Inventory");
-            Console.WriteLine("[1] - Back");
+            Console.Clear();
+            Console.WriteLine("Welcome to the Main Menu!");
+            Console.WriteLine("What do you want to do?");
+            Console.WriteLine("[2] - Manager Sign-in");
+            Console.WriteLine("[1] - Customer Sign-In");
             Console.WriteLine("[0] - Exit");
         }
 
@@ -33,12 +25,10 @@ namespace StoreUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                case "3":
-                    return MenuType.PlaceOrders;
                 case "2":
-                    return MenuType.ReplenishInventory;
+                    return MenuType.ManagerLogin;
                 case "1":
-                    return MenuType.MainMenu;
+                    return MenuType.CustomerLogin;
                 case "0":
                     return MenuType.Exit;
                 default:

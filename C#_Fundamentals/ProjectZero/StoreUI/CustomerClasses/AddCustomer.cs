@@ -4,25 +4,26 @@ using StoreModels;
 
 namespace StoreUI
 {
-    public class CustomerSign : IMenu
+    public class AddCustomer : IMenu
     {
         private static Customer _customer = new Customer();
         private IStoreBL _customerBL;
          
-        public CustomerSign(IStoreBL p_customerBL)
+        public AddCustomer(IStoreBL p_customerBL)
         {
             _customerBL = p_customerBL;
         }
 
         public void Menu()
         {
-            Console.WriteLine("Sign-in with your info.");
+            Console.Clear();
+            Console.WriteLine("Add your sign-in info.");
             Console.WriteLine("Name - " + _customer.Name);
             Console.WriteLine("Address - "+ _customer.Address);
             Console.WriteLine("Email - "+ _customer.Email);
             //Console.WriteLine("Orders - "+ _customer.ListOfOrders);
             Console.WriteLine("[5] - Test Progress");
-            Console.WriteLine("[4] - Sign-in");
+            Console.WriteLine("[4] - Add Customer");
             Console.WriteLine("[3] - Input value for Name");
             Console.WriteLine("[2] - Input value for Address");
             Console.WriteLine("[1] - Input value for Email");
@@ -35,11 +36,11 @@ namespace StoreUI
             switch (userChoice)
             {
                 case "5":
-                    return MenuType.CustomerMenu;
+                    return MenuType.CustomerSign;
                 case "4":
                     //Add implementation to talk to the repository method to add a restaurant
                     _customerBL.AddCustomer(_customer);
-                    return MenuType.CustomerMenu;
+                    return MenuType.CustomerSign;
                 case "3":
                     Console.WriteLine("Type in the value for the Name");
                     _customer.Name = Console.ReadLine();

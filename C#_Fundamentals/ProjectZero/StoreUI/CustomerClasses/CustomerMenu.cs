@@ -12,6 +12,7 @@ namespace StoreUI
         */
         public void Menu()
         {
+            Console.Clear();
             Console.WriteLine("Welcome to the Menu!");
             Console.WriteLine("Select your store or view your order history.");
             Console.WriteLine("[2] - Select a store");

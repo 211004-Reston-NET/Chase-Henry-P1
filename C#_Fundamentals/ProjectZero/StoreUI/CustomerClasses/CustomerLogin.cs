@@ -12,6 +12,7 @@ namespace StoreUI
         */
         public void Menu()
         {
+            Console.Clear();
             Console.WriteLine("Customer Sign-in");
             Console.WriteLine("----------------");
             Console.WriteLine("[2] - Add Customer");

@@ -6,7 +6,7 @@ using StoreModels;
 namespace StoreUI
 {
     //The ":" syntax is used to indicate that you will inherit another class, interface, or abstract class
-    public class SelectStore : IMenu
+    public class StorePage : IMenu
     {
         /*
             Since MainMenu has inherited IMenu, it will have all the methods we have created
@@ -14,24 +14,16 @@ namespace StoreUI
             This is an example of Inheritance, one of the Object Oriented Pillars
         */
         private IStoreBL _storefrontBL;
-        public static string _findStoreName;
-        public SelectStore(IStoreBL p_storefrontBL)
+        public StorePage(IStoreBL p_storefrontBL)
         {
             _storefrontBL = p_storefrontBL;
         }
         public void Menu()
         {
-             Console.WriteLine("List of Stores");
-            List<StoreFront> listOfStoreFronts = _storefrontBL.GetAllStoreFronts();
-
-            foreach (StoreFront place in listOfStoreFronts)
-            {
-                Console.WriteLine("====================");
-                Console.WriteLine(place);
-                Console.WriteLine("====================");
-            }
-            Console.WriteLine("Select Store needs implementation.");
-            Console.WriteLine("[2] - Select a Store");
+            Console.Clear();
+            Console.WriteLine("Store Page");
+            Console.WriteLine("[3] - Place Order");
+            Console.WriteLine("[2] - Replenish Inventory");
             Console.WriteLine("[1] - Back");
             Console.WriteLine("[0] - Exit");
         }
@@ -41,10 +33,10 @@ namespace StoreUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
+                case "3":
+                    return MenuType.PlaceOrders;
                 case "2":
-                    Console.WriteLine("Enter the name of the Store you wish to view.");
-                    _findStoreName = Console.ReadLine();
-                    return MenuType.ShowStore;
+                    return MenuType.ReplenishInventory;
                 case "1":
                     return MenuType.MainMenu;
                 case "0":

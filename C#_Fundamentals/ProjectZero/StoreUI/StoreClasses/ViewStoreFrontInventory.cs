@@ -14,6 +14,7 @@ namespace StoreUI
         }
         public void Menu()
         {
+            Console.Clear();
             Console.WriteLine("List of Products");
             List<StoreFront> listOfProducts = _restBL.GetAllProducts();
 

@@ -21,6 +21,7 @@ namespace StoreUI
         }
         public void Menu()
         {
+            Console.Clear();
             Console.WriteLine("Enter Order Information");
             Console.WriteLine("List of Items - " + _orders.ListOfLineItems);
             Console.WriteLine("Store Address - "+ _orders.StoreFrontAddress);

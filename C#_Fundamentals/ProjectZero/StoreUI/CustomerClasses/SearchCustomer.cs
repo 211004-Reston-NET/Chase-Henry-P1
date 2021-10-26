@@ -5,24 +5,24 @@ using StoreModels;
 
 namespace StoreUI
 {
-    public class ShowStore : IMenu
+    public class SearchCustomer : IMenu
     {
-        private IStoreBL _storefrontBL;
-        public ShowStore(IStoreBL p_storefrontBL)
+        private IStoreBL _customerBL;
+        public SearchCustomer(IStoreBL p_customerBL)
         {
-            _storefrontBL = p_storefrontBL;
+            _customerBL = p_customerBL;
         }
         public void Menu()
         {
-            List<StoreFront> listOfFront = _storefrontBL.GetStoreFront(SelectStore._findStoreName);
+            Console.Clear();
+            List<Customer> listOfCust = _customerBL.GetCustomer(ManagerMenu._findCustName);
             Console.WriteLine("Search results");
-            foreach (StoreFront front in listOfFront)
+            foreach (Customer cust in listOfCust)
             {
                 Console.WriteLine("====================");
-                Console.WriteLine(front);
+                Console.WriteLine(cust);
                 Console.WriteLine("====================");
             }
-            Console.WriteLine("[2] - Proceed to Store Page");
             Console.WriteLine("[1] - Back");
             Console.WriteLine("[0] - Exit");
         }
@@ -32,10 +32,8 @@ namespace StoreUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                case "2":
-                    return MenuType.StorePage;
                 case "1":
-                    return MenuType.SelectStore;
+                    return MenuType.ManagerMenu;
                 case "0":
                     return MenuType.MainMenu;
                 default:

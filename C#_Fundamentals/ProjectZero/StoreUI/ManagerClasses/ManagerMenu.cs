@@ -3,8 +3,9 @@ using System;
 namespace StoreUI
 {
     //The ":" syntax is used to indicate that you will inherit another class, interface, or abstract class
-    public class ViewOrderHistory : IMenu
+    public class ManagerMenu : IMenu
     {
+        public static string _findCustName;
         /*
             Since MainMenu has inherited IMenu, it will have all the methods we have created
             in IMenu.
@@ -12,9 +13,11 @@ namespace StoreUI
         */
         public void Menu()
         {
-    
-            Console.WriteLine("Order List needs implementation.");
-            Console.WriteLine("[1] - Back");
+            Console.Clear();
+            Console.WriteLine("Welcome to the Manager Menu!");
+            Console.WriteLine("Select your store or search for a customer.");
+            Console.WriteLine("[2] - View Stores");
+            Console.WriteLine("[1] - Search Customer");
             Console.WriteLine("[0] - Exit");
         }
 
@@ -23,9 +26,12 @@ namespace StoreUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-
+                case "2":
+                    return MenuType.SelectStore;
                 case "1":
-                    return MenuType.MainMenu;
+                    Console.WriteLine("Enter the name of the customer you want to find.");
+                    _findCustName = Console.ReadLine();
+                    return MenuType.SearchCustomer;
                 case "0":
                     return MenuType.Exit;
                 default:
