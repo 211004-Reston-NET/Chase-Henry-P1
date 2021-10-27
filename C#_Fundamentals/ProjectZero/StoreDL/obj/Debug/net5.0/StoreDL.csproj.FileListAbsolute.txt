@@ -13,3 +13,6 @@ C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\o
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\obj\Debug\net5.0\StoreDL.dll
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\obj\Debug\net5.0\ref\StoreDL.dll
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\obj\Debug\net5.0\StoreDL.pdb
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\bin\Debug\net5.0\StoreDL.runtimeconfig.json
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\bin\Debug\net5.0\StoreDL.runtimeconfig.dev.json
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\obj\Debug\net5.0\StoreDL.genruntimeconfig.cache
