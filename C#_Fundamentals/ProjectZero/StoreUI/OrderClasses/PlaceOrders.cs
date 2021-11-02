@@ -29,10 +29,11 @@ namespace StoreUI
             Console.WriteLine("Product ID - "+ _orders.prodId);
             Console.WriteLine("Order Total - "+ _orders.Total);
             //Console.WriteLine("Orders - "+ _customer.ListOfOrders);
-            //Console.WriteLine("[5] - Test Progress");
-            Console.WriteLine("[4] - Submit Order");
-            Console.WriteLine("[3] - Input Customer ID");
-            Console.WriteLine("[2] - Input Store ID");
+            
+            Console.WriteLine("[5] - Submit Order");
+            Console.WriteLine("[4] - Input Customer ID");
+            Console.WriteLine("[3] - Input Store ID");
+            Console.WriteLine("[2] - Inputer Product ID");
             Console.WriteLine("[1] - Input Total Price");
             Console.WriteLine("[0] - Back");
         }
@@ -42,12 +43,10 @@ namespace StoreUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                // case "5":
-                //      return MenuType.CustomerSign;
-                case "4":
+                case "5":
                     _ordersBL.PlaceOrders(_orders);
                     return MenuType.MainMenu;
-                case "3":
+                case "4":
                     Console.WriteLine("Type in the List of items to order.");
                     // int xd;
                     // string dx;
@@ -56,13 +55,21 @@ namespace StoreUI
                     
                     _orders.CustId = int.Parse(Console.ReadLine());
                     return MenuType.PlaceOrders;
-                case "2":
-                    Console.WriteLine("Type in the Store Front Address.");
+                case "3":
+                    Console.WriteLine("Type in the Store Front ID.");
                     // int val;
                     // string res;
                     // res = Console.ReadLine();
                     // val = Convert.ToInt32(res);
                     _orders.StoreId = int.Parse(Console.ReadLine());
+                    return MenuType.PlaceOrders;
+                case "2":
+                    Console.WriteLine("Type in the Product ID.");
+                    // int val;
+                    // string res;
+                    // res = Console.ReadLine();
+                    // val = Convert.ToInt32(res);
+                    _orders.prodId = int.Parse(Console.ReadLine());
                     return MenuType.PlaceOrders;
                 case "1":
                     Console.WriteLine("Type in the Total Price.");

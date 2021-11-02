@@ -121,6 +121,7 @@ namespace StoreDL{
                     OrderId = ord.OrderId,
                     StoreId = ord.StoreId,
                     CustId = ord.CustId,
+                    prodId = ord.prodId,
                     Total = ord.Total ?? 0
                 }
             ).ToList();
@@ -133,6 +134,7 @@ namespace StoreDL{
                     OrderId = ord.OrderId,
                     StoreId = ord.StoreId,
                     CustId = ord.CustId,
+                    prodId = ord.prodId,
                     Total = ord.Total ?? 0
                 }
             ).ToList();
@@ -146,6 +148,7 @@ namespace StoreDL{
                     OrderId = ord.OrderId,
                     StoreId = ord.StoreId,
                     CustId = ord.CustId,
+                    prodId = ord.prodId,
                     Total = ord.Total ?? 0
                     }).ToList();
         }

@@ -29,21 +29,7 @@ namespace StoreUI
                 case "2":
                     Console.WriteLine("Enter the Store ID");
                     _findStoreName = Console.ReadLine();
-                     if (_findStoreName == "1"){
-                         return MenuType.StoreOrders;
-                     }
-                     else if (_findStoreName == "2") {
-                        return MenuType.StoreOrders1;
-                     }
-                     else if (_findStoreName == "3") {
-                         return MenuType.StoreOrders2;
-                     }
-                     else {
-                         Console.WriteLine("Not a Valid Store ID");
-                         Console.WriteLine("Press Enter to continue");
-                         Console.ReadLine();
-                         return MenuType.ViewOrderHistory;
-                     }
+                    return MenuType.StoreOrders;
                 case "1":
                     Console.WriteLine("Enter the ID of the customer you want to find.");
                     _findCustName = Console.ReadLine();

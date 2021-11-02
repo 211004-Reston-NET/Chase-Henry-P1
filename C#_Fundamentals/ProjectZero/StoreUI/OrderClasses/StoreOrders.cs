@@ -22,9 +22,10 @@ namespace StoreUI
         }
         public void Menu()
         {
+            int result = Int32.Parse(ViewOrderHistory._findStoreName);
             //Console.Clear();
             Console.WriteLine("List of Store Orders");
-            List<Orders> listOfCust = _ordersBL.GetAllStoreOrdersById(ViewOrderHistory._findStoreName);
+            List<Orders> listOfCust = _ordersBL.GetAllStoreOrdersById(result);
             Console.WriteLine("Search results");
             foreach (Orders cust in listOfCust)
             {
