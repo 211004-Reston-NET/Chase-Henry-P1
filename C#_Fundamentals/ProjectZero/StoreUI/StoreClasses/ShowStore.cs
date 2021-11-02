@@ -10,22 +10,22 @@ namespace StoreUI
         private IStoreBL _storefrontBL;
         public ShowStore(IStoreBL p_storefrontBL)
         {
-            _storefrontBL = p_storefrontBL;
+            this._storefrontBL = p_storefrontBL;
         }
         public void Menu()
         {
-            Console.Clear();
-            List<StoreFront> listOfFront = _storefrontBL.GetStoreFront(SelectStore._findStoreName);
-            Console.WriteLine("Search results");
-            foreach (StoreFront front in listOfFront)
-            {
-                Console.WriteLine("====================");
-                Console.WriteLine(front);
-                Console.WriteLine("====================");
-            }
-            Console.WriteLine("[2] - Proceed to Store Page");
-            Console.WriteLine("[1] - Back");
-            Console.WriteLine("[0] - Exit");
+            // Console.Clear();
+            // List<StoreFront> listOfFront = _storefrontBL.GetStoreFront(SelectStore._findStoreName.Name);
+            // Console.WriteLine("Search results");
+            // foreach (StoreFront front in listOfFront)
+            // {
+            //     Console.WriteLine("====================");
+            //     Console.WriteLine(front);
+            //     Console.WriteLine("====================");
+            // }
+            // Console.WriteLine("[2] - Proceed to Store Page");
+            // Console.WriteLine("[1] - Back");
+            // Console.WriteLine("[0] - Exit");
         }
 
         public MenuType YourChoice()

@@ -17,12 +17,12 @@ namespace StoreUI
         public void Menu()
         {
             Console.Clear();
-            Console.WriteLine("Add your sign-in info.");
+            Console.WriteLine("Add Customer Info.");
             Console.WriteLine("Name - " + _customer.Name);
             Console.WriteLine("Address - "+ _customer.Address);
             Console.WriteLine("Email - "+ _customer.Email);
             //Console.WriteLine("Orders - "+ _customer.ListOfOrders);
-            Console.WriteLine("[5] - Test Progress");
+            //Console.WriteLine("[5] - Test Progress");
             Console.WriteLine("[4] - Add Customer");
             Console.WriteLine("[3] - Input value for Name");
             Console.WriteLine("[2] - Input value for Address");
@@ -35,8 +35,8 @@ namespace StoreUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                case "5":
-                    return MenuType.CustomerSign;
+                //case "5":
+                    //return MenuType.CustomerSign;
                 case "4":
                     //Add implementation to talk to the repository method to add a restaurant
                     _customerBL.AddCustomer(_customer);

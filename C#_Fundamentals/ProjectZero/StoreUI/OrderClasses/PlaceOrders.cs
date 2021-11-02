@@ -1,6 +1,7 @@
 using System;
 using SBL;
 using StoreModels;
+//using StoreDL;
 
 namespace StoreUI
 {
@@ -23,16 +24,17 @@ namespace StoreUI
         {
             Console.Clear();
             Console.WriteLine("Enter Order Information");
-            Console.WriteLine("List of Items - " + _orders.ListOfLineItems);
-            Console.WriteLine("Store Address - "+ _orders.StoreFrontAddress);
+            Console.WriteLine("Customer ID - " + _orders.CustId);
+            Console.WriteLine("Store ID - "+ _orders.StoreId);
+            Console.WriteLine("Product ID - "+ _orders.prodId);
             Console.WriteLine("Order Total - "+ _orders.Total);
             //Console.WriteLine("Orders - "+ _customer.ListOfOrders);
             //Console.WriteLine("[5] - Test Progress");
             Console.WriteLine("[4] - Submit Order");
-            Console.WriteLine("[3] - Input List of Items");
-            Console.WriteLine("[2] - Input value for Store Address");
-            Console.WriteLine("[1] - Input value for Total Price");
-            Console.WriteLine("[0] - Exit");
+            Console.WriteLine("[3] - Input Customer ID");
+            Console.WriteLine("[2] - Input Store ID");
+            Console.WriteLine("[1] - Input Total Price");
+            Console.WriteLine("[0] - Back");
         }
 
         public MenuType YourChoice()
@@ -44,21 +46,30 @@ namespace StoreUI
                 //      return MenuType.CustomerSign;
                 case "4":
                     _ordersBL.PlaceOrders(_orders);
-                    return MenuType.StorePage;
+                    return MenuType.MainMenu;
                 case "3":
                     Console.WriteLine("Type in the List of items to order.");
-                    _orders.ListOfLineItems = Console.ReadLine();
+                    // int xd;
+                    // string dx;
+                    // dx = Console.ReadLine();
+                    // xd = Convert.ToInt32(dx);
+                    
+                    _orders.CustId = int.Parse(Console.ReadLine());
                     return MenuType.PlaceOrders;
                 case "2":
                     Console.WriteLine("Type in the Store Front Address.");
-                    _orders.StoreFrontAddress = Console.ReadLine();
+                    // int val;
+                    // string res;
+                    // res = Console.ReadLine();
+                    // val = Convert.ToInt32(res);
+                    _orders.StoreId = int.Parse(Console.ReadLine());
                     return MenuType.PlaceOrders;
                 case "1":
                     Console.WriteLine("Type in the Total Price.");
-                    _orders.Total = Console.ReadLine();
+                    _orders.Total = int.Parse(Console.ReadLine());
                     return MenuType.PlaceOrders;
                 case "0":
-                    return MenuType.Exit;
+                    return MenuType.MainMenu;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");

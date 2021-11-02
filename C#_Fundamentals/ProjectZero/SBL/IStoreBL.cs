@@ -52,7 +52,7 @@ namespace SBL
         /// It will also capitalize every name of the product
         /// </summary>
         /// <returns>It will return a list of products</returns>
-        List<StoreFront> GetAllProducts();
+        List<Products> GetAllProducts();
 
         /// <summary>
         /// Adds a restaurant to the database
@@ -95,5 +95,25 @@ namespace SBL
         /// <param name="p_orders">This is the string it will check to find restaurants if their name has those letters</param>
         /// <returns>It will return restaurants it found</returns>
         List<Orders> GetOrders(string p_orders);
+
+        /// <summary>
+        /// This will return a list of restaurants stored in the database
+        /// It will also capitalize every name of the restaurant
+        /// </summary>
+        /// <returns>It will return a list of restaurants</returns>
+        List<Orders> GetAllCustomerOrders();
+
+        /// <summary>
+        /// </summary>
+        /// <returns>It will return a list of restaurants</returns>
+        List<Orders> GetAllStoreOrders();
+
+        /// <summary>
+        /// Will find multiple restaurant given a name
+        /// </summary>
+        /// <param name="p_name">This is the string it will check to find restaurants if their name has those letters</param>
+        /// <returns>It will return restaurants it found</returns>
+        List<Orders> GetCustomerOrders(int p_name);
+        List<Orders> GetAllStoreOrdersById(int p_id);
     }
 }

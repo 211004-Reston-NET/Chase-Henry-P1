@@ -60,15 +60,17 @@ namespace SBL
             return listOfCustomer;
         }
 
+        
+
         public StoreFront AddProducts(StoreFront p_products)
         {
             return _repo.AddProducts(p_products);
         }
 
-         public List<StoreFront> GetAllProducts()
+         public List<Products> GetAllProducts()
         {
             //Maybe my business operation needs to capitalize every name of a restaurant
-            List<StoreFront> listOfProducts = _repo.GetAllProducts();
+            List<Products> listOfProducts = _repo.GetAllProducts();
             for (int i = 0; i < listOfProducts.Count; i++)
             {
                 listOfProducts[i].Name = listOfProducts[i].Name.ToLower(); 
@@ -117,13 +119,9 @@ namespace SBL
 
         public List<Orders> GetAllOrders()
         {
-            List<Orders> listOfOrders = _repo.GetAllOrders();
-            for (int i = 0; i < listOfOrders.Count; i++)
-            {
-                listOfOrders[i].ListOfLineItems = listOfOrders[i].ListOfLineItems.ToLower(); 
-            }
+            throw new System.NotImplementedException();
 
-            return listOfOrders;
+            //return listOfOrders;
         }
 
         public Orders PlaceOrders(Orders p_orders)
@@ -133,14 +131,55 @@ namespace SBL
 
         public List<Orders> GetOrders(string p_orders)
         {
-            List<Orders> listOfOrders = _repo.GetAllOrders();
+            // List<Orders> listOfOrders = _repo.GetAllOrders();
+            
+            // //Select method will give a list of boolean if the condition was true/false
+            // //Where method will give the actual element itself based on some condition
+            // //ToList method will convert into List that our method currently needs to return.
+            // //ToLower will lowercase the string to make it not case sensitive
+            // return listOfOrders.Where(orders => orders.ListOfLineItems.ToLower().Contains(p_orders.ToLower())).ToList();
+            throw new System.NotImplementedException();
+        }
+
+        public List<Orders> GetAllCustomerOrders()
+        {
+            
+            List<Orders> listOfCustomerOrders = _repo.GetAllCustomerOrders();
+            for (int i = 0; i < listOfCustomerOrders.Count; i++)
+            {
+                listOfCustomerOrders[i].CustId = listOfCustomerOrders[i].CustId; 
+            }
+
+            return listOfCustomerOrders;
+        }
+
+        public List<Orders> GetAllStoreOrders()
+        {
+            
+            List<Orders> listOfStoreOrders = _repo.GetAllStoreOrders();
+            for (int i = 0; i < listOfStoreOrders.Count; i++)
+            {
+                listOfStoreOrders[i].Total = listOfStoreOrders[i].Total; 
+            }
+
+            return listOfStoreOrders;
+        }
+
+        public List<Orders> GetCustomerOrders(int p_name)
+        {
+            List<Orders> listOfCustomer = _repo.GetAllCustomerOrders();
             
             //Select method will give a list of boolean if the condition was true/false
             //Where method will give the actual element itself based on some condition
             //ToList method will convert into List that our method currently needs to return.
             //ToLower will lowercase the string to make it not case sensitive
-            return listOfOrders.Where(orders => orders.ListOfLineItems.ToLower().Contains(p_orders.ToLower())).ToList();
+            return listOfCustomer.Where(cust => cust.CustId==(p_name)).ToList();
         }
+
+        public List<Orders> GetAllStoreOrdersById(int p_id){
+            return _repo.GetAllStoreOrdersById(p_id);
+        }
+        
 
     }
 }

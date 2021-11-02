@@ -36,14 +36,15 @@ namespace StoreModels
 
     public class Customer {
         //TODO properties: name, address, email/phone, list of orders
+        public int CustId { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
         public string Email { get; set; }
-        public string ListOfOrders { get; set; }
+        
 
         public override string ToString()
         {
-            return $"Name: {Name}\nAddress: {Address}\nEmail: {Email}\nListOfOrders: {ListOfOrders}";
+            return $"Name: {Name}\nAddress: {Address}\nEmail: {Email}\nCustomer Id: {CustId}";
         }
 
 
@@ -53,46 +54,59 @@ namespace StoreModels
         //TODO properties: name, address, list of Products, List of orders
         public string Name { get; set; }
         public string Address { get; set; }
-        public string ListOfProducts { get; set; }
-        public string ListOfOrders { get; set; }
+        public int StoreId { get; set; }
+        public int? OrderId { get; set; }
 
         public override string ToString()
         {
-            return $"Name: {Name}\nAddress: {Address}\nListOfProducts: {ListOfProducts}\nListOfOrders: {ListOfOrders}";
+            return $"Name: {Name}\nAddress: {Address}\nStore Id: {StoreId}";
         }
     }
 
     public class Orders {
         //TODO properties: List of line items, Storefronts location (that the order was placed), total price
-        public string ListOfLineItems { get; set; }
-        public string StoreFrontAddress { get; set; }
-        public string Total { get; set; }
+        public int OrderId { get; set; }
+        public int? Total { get; set; }
+        public int? CustId { get; set; }
+        public int? StoreId { get; set; }
+        public int? prodId {get; set;}
 
         public override string ToString()
         {
-            return $"ListOfLineitems: {ListOfLineItems}\nSStoreFrontAddress: {StoreFrontAddress}\nTotal: {Total}";
+            return $"Order Id: {OrderId}\nStore Id: {StoreId}\nCust Id: {CustId}\nProduct ID: {prodId}\nTotal: {Total}";
         }
     }
 
     public class LineItems {
         //TODO properties: product, quantity
+        public int ItemId {get; set;}
+        public int? OrderId {get; set;}
         public string Product { get; set; }
-        public string Quantity { get; set; }
+        public int? Quantity { get; set; }
 
         public override string ToString()
         {
-            return $"Product: {Product}\nQuantity: {Quantity}";
+            return $"Product: {Product}\nQuantity: {Quantity}\nOrderId: {OrderId}\nItemId: {ItemId}";
         }
     }
 
     public class Products {
         //TODO properties: name, price, desc (optional), category (optional)
+        public int ProdId {get; set;}
+        public int? ItemId {get; set;}
         public string Name { get; set; }
-        public string Price { get; set; }
+        public int? Price { get; set; }
+        public int? StoreId {get; set;}
 
         public override string ToString()
         {
-            return $"Name: {Name}\nPrice: {Price}";
+            return $"Name: {Name}\nPrice: {Price}\nProduct Id: {ProdId}";
+            //n==ItemId: {ItemId}\nStoreId: {StoreId}";
         }
+
+    public class Singleton {
+        public static StoreFront viewStoreFront;
+        public static Customer viewCustomer;
+    }
     }
 }

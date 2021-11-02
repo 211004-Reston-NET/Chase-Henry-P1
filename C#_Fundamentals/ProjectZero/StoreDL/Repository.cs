@@ -9,7 +9,7 @@ namespace StoreDL
 {
     //The repository class has a bunch of methods that we will use to get or store information from the database
     //Does not actually hold the data itself
-    public class Repository : IRepository
+    public class Repository
     {
         //Filepath need to reference from the startup project (RRUI) and hence why we need to go back a folder and cd into RRDL
         private const string _filepath = "./../StoreDL/Database/";

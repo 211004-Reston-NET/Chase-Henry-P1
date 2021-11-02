@@ -22,7 +22,13 @@ namespace StoreUI
         CustomerMenu,
         CustomerSign,
         StorePage,
+        StorePage1,
+        StorePage2,
         ManagerMenu,
+        CustomerOrders,
+        StoreOrders,
+        StoreOrders1,
+        StoreOrders2,
         Exit
     }
 

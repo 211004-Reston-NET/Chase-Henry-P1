@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using SBL;
 using StoreModels;
+using Microsoft.Data.SqlClient;
+
 
 namespace StoreUI
 {
@@ -14,14 +16,14 @@ namespace StoreUI
             This is an example of Inheritance, one of the Object Oriented Pillars
         */
         private IStoreBL _storefrontBL;
-        public static string _findStoreName;
+        public string _findStoreName = new string("");
         public SelectStore(IStoreBL p_storefrontBL)
         {
             _storefrontBL = p_storefrontBL;
         }
         public void Menu()
         {
-            Console.Clear();
+            //Console.Clear();
             Console.WriteLine("List of Stores");
             List<StoreFront> listOfStoreFronts = _storefrontBL.GetAllStoreFronts();
 
@@ -31,10 +33,8 @@ namespace StoreUI
                 Console.WriteLine(place);
                 Console.WriteLine("====================");
             }
-            Console.WriteLine("Select Store needs implementation.");
-            Console.WriteLine("[2] - Select a Store");
-            Console.WriteLine("[1] - Back");
-            Console.WriteLine("[0] - Exit");
+            Console.WriteLine("[1] - Enter a Store ID to view its Inventory");
+            Console.WriteLine("[0] - Back");
         }
 
         public MenuType YourChoice()
@@ -42,14 +42,26 @@ namespace StoreUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                case "2":
-                    Console.WriteLine("Enter the name of the Store you wish to view.");
-                    _findStoreName = Console.ReadLine();
-                    return MenuType.ShowStore;
                 case "1":
-                    return MenuType.MainMenu;
+                    Console.WriteLine("Enter the Store ID");
+                    _findStoreName = Console.ReadLine();
+                     if (_findStoreName == "1"){
+                         return MenuType.StorePage;
+                     }
+                     else if (_findStoreName == "2") {
+                        return MenuType.StorePage1;
+                     }
+                     else if (_findStoreName == "3") {
+                         return MenuType.StorePage2;
+                     }
+                     else {
+                         Console.WriteLine("Not a Valid Store ID");
+                         Console.WriteLine("Press Enter to continue");
+                         Console.ReadLine();
+                         return MenuType.SelectStore;
+                     }
                 case "0":
-                    return MenuType.Exit;
+                    return MenuType.MainMenu;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");

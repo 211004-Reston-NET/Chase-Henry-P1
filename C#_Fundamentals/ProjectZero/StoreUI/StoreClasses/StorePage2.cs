@@ -11,7 +11,7 @@ using StoreDL.Entities;
 namespace StoreUI
 {
     //The ":" syntax is used to indicate that you will inherit another class, interface, or abstract class
-    public class StorePage : IMenu
+    public class StorePage2 : IMenu
     {
         /*
             Since MainMenu has inherited IMenu, it will have all the methods we have created
@@ -19,7 +19,7 @@ namespace StoreUI
             This is an example of Inheritance, one of the Object Oriented Pillars
         */
         private IStoreBL _storefrontBL;
-        public StorePage(IStoreBL p_storefrontBL)
+        public StorePage2(IStoreBL p_storefrontBL)
         {
             _storefrontBL = p_storefrontBL;
         }
@@ -37,7 +37,7 @@ namespace StoreUI
                    Console.WriteLine("Store Page");
                     Console.WriteLine("=====================");
 
-                    String sql = "select p.Name, p.Price, li.itemId, li.Quantity FROM Products p inner join LineItems li on p.itemId = li.itemId where p.storeId = 1";
+                    String sql = "select p.Name, p.Price, li.itemId, li.Quantity FROM Products p inner join LineItems li on p.itemId = li.itemId where p.storeId = 3";
 
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
@@ -91,7 +91,7 @@ namespace StoreUI
                         builder.InitialCatalog = "RR-Project0";
                         using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                         {
-                            String sql = "update LineItems Set Quantity = Quantity + 1 where itemId = 1";
+                            String sql = "update LineItems Set Quantity = Quantity + 1 where itemId = 7";
 
                             using (SqlCommand command = new SqlCommand(sql, connection))
                             {
@@ -110,7 +110,7 @@ namespace StoreUI
                         {
                             Console.WriteLine(e.ToString());
                         }
-                        return MenuType.StorePage;
+                        return MenuType.StorePage2;
                 case "3":
                     try {
                         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
@@ -120,7 +120,7 @@ namespace StoreUI
                         builder.InitialCatalog = "RR-Project0";
                         using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                         {
-                            String sql = "update LineItems Set Quantity = Quantity + 1 where itemId = 2";
+                            String sql = "update LineItems Set Quantity = Quantity + 1 where itemId = 8";
 
                             using (SqlCommand command = new SqlCommand(sql, connection))
                             {
@@ -139,7 +139,7 @@ namespace StoreUI
                         {
                             Console.WriteLine(e.ToString());
                         }
-                        return MenuType.StorePage;
+                        return MenuType.StorePage2;
                 case "2":
                     try {
                         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
@@ -149,7 +149,7 @@ namespace StoreUI
                         builder.InitialCatalog = "RR-Project0";
                         using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                         {
-                            String sql = "update LineItems Set Quantity = Quantity + 1 where itemId = 3";
+                            String sql = "update LineItems Set Quantity = Quantity + 1 where itemId = 9";
 
                             using (SqlCommand command = new SqlCommand(sql, connection))
                             {
@@ -168,7 +168,7 @@ namespace StoreUI
                         {
                             Console.WriteLine(e.ToString());
                         }
-                        return MenuType.StorePage;
+                        return MenuType.StorePage2;
                 case "1":
                     return MenuType.SelectStore;
                 case "0":

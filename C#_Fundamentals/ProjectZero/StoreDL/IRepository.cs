@@ -42,7 +42,7 @@ namespace StoreDL
         /// This will return a list of products stored in the database
         /// </summary>
         /// <returns>It will return a list of products</returns>
-        List<StoreFront> GetAllProducts();
+        List<Products> GetAllProducts();
 
         /// <summary>
         /// It will add a product in our database
@@ -69,5 +69,18 @@ namespace StoreDL
         /// <param name="p_orders">This is the product we will be adding to the database</param>
         /// <returns>It will just return the product we are adding</returns>
         Orders PlaceOrders(Orders p_orders);
+
+         /// <summary>
+        /// This will return a list of products stored in the database
+        /// </summary>
+        /// <returns>It will return a list of products</returns>
+        List<Orders> GetAllCustomerOrders();
+
+         /// <summary>
+        /// This will return a list of products stored in the database
+        /// </summary>
+        /// <returns>It will return a list of products</returns>
+        List<Orders> GetAllStoreOrders();
+        List<Orders> GetAllStoreOrdersById(int p_id);
     }
 }

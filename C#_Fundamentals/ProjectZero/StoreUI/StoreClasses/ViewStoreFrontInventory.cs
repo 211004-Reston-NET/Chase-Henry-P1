@@ -16,9 +16,9 @@ namespace StoreUI
         {
             Console.Clear();
             Console.WriteLine("List of Products");
-            List<StoreFront> listOfProducts = _restBL.GetAllProducts();
+            List<Products> listOfProducts = _restBL.GetAllProducts();
 
-            foreach (StoreFront place in listOfProducts)
+            foreach (Products place in listOfProducts)
             {
                 Console.WriteLine("====================");
                 Console.WriteLine(place);

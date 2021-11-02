@@ -19,9 +19,9 @@ namespace StoreUI
                 .AddJsonFile("appsetting.json") //Adds the appsetting.json file in our RRUI
                 .Build(); //Builds our configuration
 
-            DbContextOptions<RRProject0Context> options = new DbContextOptionsBuilder<RRProject0Context>()
-                .UseSqlServer(configuration.GetConnectionString("ReferenceDB"))
-                .Options;
+             DbContextOptions<RRProject0Context> options = new DbContextOptionsBuilder<RRProject0Context>()
+                 .UseSqlServer(configuration.GetConnectionString("ReferenceDB"))
+                 .Options;
 
             switch (p_menu)
                 {
@@ -41,6 +41,10 @@ namespace StoreUI
                         return new ManagerMenu();
                     case MenuType.StorePage:
                         return new StorePage(new StoreBL(new RepositoryCloud(new RRProject0Context(options))));
+                    case MenuType.StorePage1:
+                        return new StorePage1(new StoreBL(new RepositoryCloud(new RRProject0Context(options))));
+                    case MenuType.StorePage2:
+                        return new StorePage2(new StoreBL(new RepositoryCloud(new RRProject0Context(options))));
                     case MenuType.SearchCustomer:
                         return new SearchCustomer(new StoreBL(new RepositoryCloud(new RRProject0Context(options))));
                     case MenuType.PlaceOrders:
@@ -57,6 +61,14 @@ namespace StoreUI
                         return new AddCustomer(new StoreBL(new RepositoryCloud(new RRProject0Context(options))));
                     case MenuType.ViewStoreFrontInventory:
                         return new ViewStoreFrontInventory(new StoreBL(new RepositoryCloud(new RRProject0Context(options))));
+                    case MenuType.CustomerOrders:
+                        return new CustomerOrders(new StoreBL(new RepositoryCloud(new RRProject0Context(options))));
+                    case MenuType.StoreOrders:
+                        return new StoreOrders(new StoreBL(new RepositoryCloud(new RRProject0Context(options))));
+                    case MenuType.StoreOrders1:
+                        return new StoreOrders1(new StoreBL(new RepositoryCloud(new RRProject0Context(options))));
+                    case MenuType.StoreOrders2:
+                        return new StoreOrders2(new StoreBL(new RepositoryCloud(new RRProject0Context(options))));
                     default:
                         return null;
                 }
