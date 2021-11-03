@@ -24,5 +24,6 @@ namespace StoreDL.Entities
         public virtual Product prod {get; set;}
         public virtual ICollection<LineItem> LineItems { get; set; }
         public virtual ICollection<StoreFront> StoreFronts { get; set; }
+        //public virtual ICollection<Product> Products {get; set;}
     }
 }

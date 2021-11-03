@@ -38,9 +38,14 @@ namespace StoreUI
                 //case "5":
                     //return MenuType.CustomerSign;
                 case "4":
-                    //Add implementation to talk to the repository method to add a restaurant
+                    if (_customer.Name == null || _customer.Email == null || _customer.Address == null){
+                        Console.WriteLine("Customer Cannot Have Null Values!");
+                        Console.ReadLine();
+                        return MenuType.MainMenu;
+                    } else {
                     _customerBL.AddCustomer(_customer);
-                    return MenuType.CustomerSign;
+                    }
+                    return MenuType.MainMenu;
                 case "3":
                     Console.WriteLine("Type in the value for the Name");
                     _customer.Name = Console.ReadLine();

@@ -106,6 +106,7 @@ namespace StoreDL{
                 new Entity.Order() {
                     CustId = p_orders.CustId,
                     StoreId = p_orders.StoreId,
+                    prodId = p_orders.prodId,
                     Total = p_orders.Total
                 }
             );

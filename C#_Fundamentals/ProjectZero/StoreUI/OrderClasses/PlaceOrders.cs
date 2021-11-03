@@ -33,7 +33,7 @@ namespace StoreUI
             Console.WriteLine("[5] - Submit Order");
             Console.WriteLine("[4] - Input Customer ID");
             Console.WriteLine("[3] - Input Store ID");
-            Console.WriteLine("[2] - Inputer Product ID");
+            Console.WriteLine("[2] - Input Product ID");
             Console.WriteLine("[1] - Input Total Price");
             Console.WriteLine("[0] - Back");
         }
@@ -44,7 +44,13 @@ namespace StoreUI
             switch (userChoice)
             {
                 case "5":
-                    _ordersBL.PlaceOrders(_orders);
+                     if (_orders.CustId == null || _orders.StoreId == null || _orders.prodId == null || _orders.Total == null){
+                        Console.WriteLine("Order Cannot Have Null Values!");
+                        Console.ReadLine();
+                        return MenuType.MainMenu;
+                     } else {
+                         _ordersBL.PlaceOrders(_orders);
+                     }
                     return MenuType.MainMenu;
                 case "4":
                     Console.WriteLine("Type in the List of items to order.");
