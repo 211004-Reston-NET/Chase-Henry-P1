@@ -1,6 +1,7 @@
 using System;
 using SBL;
 using StoreModels;
+using Serilog;
 
 namespace StoreUI
 {
@@ -16,6 +17,13 @@ namespace StoreUI
 
         public void Menu()
         {
+
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Console()
+                .WriteTo.File("logs/addCustomer.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
+            
             Console.Clear();
             Console.WriteLine("Add Customer Info.");
             Console.WriteLine("Name - " + _customer.Name);
@@ -40,6 +48,7 @@ namespace StoreUI
                 case "4":
                     if (_customer.Name == null || _customer.Email == null || _customer.Address == null){
                         Console.WriteLine("Customer Cannot Have Null Values!");
+                        Log.Information("Null Value Attempted in Add Customer");
                         Console.ReadLine();
                         return MenuType.MainMenu;
                     } else {

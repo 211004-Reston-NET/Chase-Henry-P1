@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using SBL;
 using StoreModels;
+using Serilog;
 
 namespace StoreUI
 {
@@ -14,9 +15,19 @@ namespace StoreUI
         }
         public void Menu()
         {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Console()
+                .WriteTo.File("logs/SearchCustomer.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
+            
             Console.Clear();
             List<Customer> listOfCust = _customerBL.GetCustomer(MainMenu._findCustName);
             Console.WriteLine("Search results");
+            if (listOfCust.Count == 0) {
+                    Console.WriteLine("Not a valid Customer Name");
+                    Log.Information("Invalid Customer Name Provided");
+                }
             foreach (Customer cust in listOfCust)
             {
                 Console.WriteLine("====================");

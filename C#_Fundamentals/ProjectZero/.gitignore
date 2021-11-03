@@ -2,3 +2,4 @@ appsetting.json
 bin
 obj
 .vscode
+logs

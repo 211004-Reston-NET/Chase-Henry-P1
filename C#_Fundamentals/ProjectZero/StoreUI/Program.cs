@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using SBL;
 using StoreDL;
+using Serilog;
 
 namespace StoreUI
 {
@@ -9,6 +10,12 @@ namespace StoreUI
     {
         static void Main(string[] args)
         {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Console()
+                .WriteTo.File("logs/myapp.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
+            Log.Information("App Started");
             //This is a boolean that has either a false or true value
             //I will use this to stop the while loop
             bool repeat = true;

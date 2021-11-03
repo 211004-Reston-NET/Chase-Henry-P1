@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SBL;
 using StoreModels;
 using Microsoft.Data.SqlClient;
+using Serilog;
 
 namespace StoreUI
 {
@@ -22,15 +23,29 @@ namespace StoreUI
         }
         public void Menu()
         {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Console()
+                .WriteTo.File("logs/ViewStoreOrders.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
+
             int result = Int32.Parse(ViewOrderHistory._findStoreName);
             //Console.Clear();
             Console.WriteLine("List of Store Orders");
             List<Orders> listOfCust = _ordersBL.GetAllStoreOrdersById(result);
             Console.WriteLine("Search results");
+            if (listOfCust.Count == 0) {
+                    Console.WriteLine("Not a valid Store ID");
+                    Log.Information("Invalid Store ID in View Store Orders");
+                }
             foreach (Orders cust in listOfCust)
             {
                 Console.WriteLine("====================");
                 Console.WriteLine(cust);
+                if (cust == null) {
+                    Console.WriteLine("Not a valid Store ID");
+                    //Console.ReadLine();
+                }
                 Console.WriteLine("====================");
             }
             //  try {

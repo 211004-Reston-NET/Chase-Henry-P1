@@ -1,6 +1,7 @@
 using System;
 using SBL;
 using StoreModels;
+using Serilog;
 //using StoreDL;
 
 namespace StoreUI
@@ -22,6 +23,12 @@ namespace StoreUI
         }
         public void Menu()
         {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Console()
+                .WriteTo.File("logs/PlaceOrders.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
+            
             Console.Clear();
             Console.WriteLine("Enter Order Information");
             Console.WriteLine("Customer ID - " + _orders.CustId);
@@ -46,6 +53,7 @@ namespace StoreUI
                 case "5":
                      if (_orders.CustId == null || _orders.StoreId == null || _orders.prodId == null || _orders.Total == null){
                         Console.WriteLine("Order Cannot Have Null Values!");
+                        Log.Information("Null Value Attempted in Place Orders");
                         Console.ReadLine();
                         return MenuType.MainMenu;
                      } else {

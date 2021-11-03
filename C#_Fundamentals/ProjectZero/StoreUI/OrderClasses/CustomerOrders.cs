@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SBL;
 using StoreModels;
 using Microsoft.Data.SqlClient;
+using Serilog;
 
 namespace StoreUI
 {
@@ -22,11 +23,21 @@ namespace StoreUI
         }
         public void Menu()
         {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Console()
+                .WriteTo.File("logs/ViewCustomerOrders.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
+
             int result = Int32.Parse(ViewOrderHistory._findCustName);
             //Console.Clear();
             Console.WriteLine("List of Customer Orders");
             List<Orders> listOfCust = _customerBL.GetCustomerOrders(result);
             Console.WriteLine("Search results");
+            if (listOfCust.Count == 0) {
+                    Console.WriteLine("Not a valid Customer ID");
+                    Log.Information("Invalid Customer ID in View Customer Orders");
+                }
             foreach (Orders cust in listOfCust)
             {
                 Console.WriteLine("====================");

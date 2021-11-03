@@ -75,3 +75,6 @@ C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreUI\b
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreUI\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Abstractions.dll
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreUI\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Physical.dll
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreUI\bin\Debug\net5.0\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreUI\bin\Debug\net5.0\Serilog.dll
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreUI\bin\Debug\net5.0\Serilog.Sinks.Console.dll
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreUI\bin\Debug\net5.0\Serilog.Sinks.File.dll

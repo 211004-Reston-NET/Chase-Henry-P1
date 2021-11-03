@@ -1,10 +1,11 @@
 using System;
-
+using Serilog;
 namespace StoreUI
 {
     //The ":" syntax is used to indicate that you will inherit another class, interface, or abstract class
     public class MainMenu : IMenu
     {
+        
         public static string _findCustName;
         /*
             Since MainMenu has inherited IMenu, it will have all the methods we have created
@@ -13,6 +14,12 @@ namespace StoreUI
         */
         public void Menu()
         {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Console()
+                .WriteTo.File("logs/MainMenu.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
+
             Console.Clear();
             Console.WriteLine("Welcome to the Store Manager App!");
             Console.WriteLine("What would you like to do?");
@@ -46,6 +53,7 @@ namespace StoreUI
                 case "0":
                     return MenuType.Exit;
                 default:
+                    Log.Information("Invalid Response on Main Menu");
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();

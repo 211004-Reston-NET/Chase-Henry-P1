@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SBL;
 using StoreModels;
 using Microsoft.Data.SqlClient;
+using Serilog;
 
 
 namespace StoreUI
@@ -23,10 +24,15 @@ namespace StoreUI
         }
         public void Menu()
         {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Console()
+                .WriteTo.File("logs/SelectStoreInventory.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
+
             //Console.Clear();
             Console.WriteLine("List of Stores");
             List<StoreFront> listOfStoreFronts = _storefrontBL.GetAllStoreFronts();
-
             foreach (StoreFront place in listOfStoreFronts)
             {
                 Console.WriteLine("====================");
@@ -55,6 +61,7 @@ namespace StoreUI
                          return MenuType.StorePage2;
                      }
                      else {
+                         Log.Information("Invalid Store ID Given In Select Store Inventory");
                          Console.WriteLine("Not a Valid Store ID");
                          Console.WriteLine("Press Enter to continue");
                          Console.ReadLine();

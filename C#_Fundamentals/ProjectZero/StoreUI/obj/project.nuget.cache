@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4c6izJ+z5mhjnOlTAaX7HwvQTcCqHwWE3y6iW7/0DokReqxtqWDpKLEDqJQTOnA7s75F8KnJhHHA0GgznYpVcQ==",
+  "dgSpecHash": "4UolOTovX9KaBjGWLTlS9GAHVTmMMJ9pbC3MzKlU+AvMFVGZsu94oNWjZ+3i+p15xa0/wyFU9AYFum4cKEW8Lw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Chase\\Documents\\211004-Reston-NET\\C#_Fundamentals\\ProjectZero\\StoreUI\\StoreUI.csproj",
   "expectedPackageFiles": [
@@ -41,6 +41,9 @@
     "C:\\Users\\Chase\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Chase\\.nuget\\packages\\newtonsoft.json\\10.0.1\\newtonsoft.json.10.0.1.nupkg.sha512",
     "C:\\Users\\Chase\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
+    "C:\\Users\\Chase\\.nuget\\packages\\serilog\\2.10.0\\serilog.2.10.0.nupkg.sha512",
+    "C:\\Users\\Chase\\.nuget\\packages\\serilog.sinks.console\\4.0.0\\serilog.sinks.console.4.0.0.nupkg.sha512",
+    "C:\\Users\\Chase\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512",
     "C:\\Users\\Chase\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\Chase\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
     "C:\\Users\\Chase\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
