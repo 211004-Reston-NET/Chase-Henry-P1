@@ -1,10 +1,11 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using StoreModels;
 
 #nullable disable
 
-namespace StoreDL.Entities
+namespace StoreDL
 {
     public partial class RRProject0Context : DbContext
     {
@@ -17,10 +18,10 @@ namespace StoreDL.Entities
         {
         }
 
-        public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<LineItem> LineItems { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<LineItems> LineItems { get; set; }
+        public virtual DbSet<Orders> Orders { get; set; }
+        public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<StoreFront> StoreFronts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -38,18 +39,21 @@ namespace StoreDL.Entities
 
                 entity.Property(e => e.Address)
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .IsRequired();
 
                 entity.Property(e => e.Email)
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .IsRequired();
 
                 entity.Property(e => e.Name)
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .IsRequired();
             });
 
-            modelBuilder.Entity<LineItem>(entity =>
+            modelBuilder.Entity<LineItems>(entity =>
             {
                 entity.HasKey(e => e.ItemId)
                     .HasName("PK__LineItem__56A128AAC85AB9FF");
@@ -62,13 +66,13 @@ namespace StoreDL.Entities
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.Order)
-                    .WithMany(p => p.LineItems)
-                    .HasForeignKey(d => d.OrderId)
-                    .HasConstraintName("FK__LineItems__order__6EF57B66");
+                // entity.HasOne(d => d.Orders)
+                //     .WithMany(p => p.LineItems)
+                //     .HasForeignKey(d => d.OrderId)
+                //     .HasConstraintName("FK__LineItems__order__6EF57B66");
             });
 
-            modelBuilder.Entity<Order>(entity =>
+            modelBuilder.Entity<Orders>(entity =>
             {
                 entity.HasKey(e => e.OrderId)
                     .HasName("PK__Orders__0809335D6AC1256C");
@@ -80,23 +84,23 @@ namespace StoreDL.Entities
 
                 entity.Property(e => e.prodId).HasColumnName("prodId");
 
-                entity.HasOne(d => d.Cust)
-                    .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.CustId)
-                    .HasConstraintName("FK__Orders__custId__6B24EA82");
+                // entity.HasOne(d => d.Cust)
+                //     .WithMany(p => p.Orders)
+                //     .HasForeignKey(d => d.CustId)
+                //     .HasConstraintName("FK__Orders__custId__6B24EA82");
 
-                entity.HasOne(d => d.Store)
-                    .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.StoreId)
-                    .HasConstraintName("FK__Orders__storeId__76969D2E");
+                // entity.HasOne(d => d.Store)
+                //     .WithMany(p => p.Orders)
+                //     .HasForeignKey(d => d.StoreId)
+                //     .HasConstraintName("FK__Orders__storeId__76969D2E");
 
-                entity.HasOne(d => d.prod)
-                    .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.prodId)
-                    .HasConstraintName("FK__Orders__prodId__7C4F7684");
+                // entity.HasOne(d => d.prod)
+                //     .WithMany(p => p.Orders)
+                //     .HasForeignKey(d => d.prodId)
+                //     .HasConstraintName("FK__Orders__prodId__7C4F7684");
             });
 
-            modelBuilder.Entity<Product>(entity =>
+            modelBuilder.Entity<Products>(entity =>
             {
                 entity.HasKey(e => e.ProdId)
                     .HasName("PK__Products__319F67F1A9BAEBCA");
@@ -111,15 +115,15 @@ namespace StoreDL.Entities
 
                 entity.Property(e => e.StoreId).HasColumnName("storeId");
 
-                entity.HasOne(d => d.Item)
-                    .WithMany(p => p.Products)
-                    .HasForeignKey(d => d.ItemId)
-                    .HasConstraintName("FK__Products__itemId__797309D9");
+                // entity.HasOne(d => d.Item)
+                //     .WithMany(p => p.Products)
+                //     .HasForeignKey(d => d.ItemId)
+                //     .HasConstraintName("FK__Products__itemId__797309D9");
 
-                entity.HasOne(d => d.Store)
-                    .WithMany(p => p.Products)
-                    .HasForeignKey(d => d.StoreId)
-                    .HasConstraintName("FK__Products__storeI__7A672E12");
+                // entity.HasOne(d => d.Store)
+                //     .WithMany(p => p.Products)
+                //     .HasForeignKey(d => d.StoreId)
+                //     .HasConstraintName("FK__Products__storeI__7A672E12");
             });
 
             modelBuilder.Entity<StoreFront>(entity =>
@@ -141,10 +145,10 @@ namespace StoreDL.Entities
 
                 entity.Property(e => e.OrderId).HasColumnName("orderId");
 
-                entity.HasOne(d => d.Order)
-                    .WithMany(p => p.StoreFronts)
-                    .HasForeignKey(d => d.OrderId)
-                    .HasConstraintName("FK__StoreFron__order__71D1E811");
+                // entity.HasOne(d => d.Order)
+                //     .WithMany(p => p.StoreFronts)
+                //     .HasForeignKey(d => d.OrderId)
+                //     .HasConstraintName("FK__StoreFron__order__71D1E811");
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -82,5 +82,11 @@ namespace StoreDL
         /// <returns>It will return a list of products</returns>
         List<Orders> GetAllStoreOrders();
         List<Orders> GetAllStoreOrdersById(int p_id);
+
+        List<LineItems> GetAllLineItems();
+
+        Customer DeleteCustomer(Customer p_Customer);
+
+        Customer GetCustomerById(int p_id);
     }
 }

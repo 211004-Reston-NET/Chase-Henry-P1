@@ -28,7 +28,7 @@ C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\SBL\obj\D
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\SBL\obj\Debug\net5.0\StoreBL.AssemblyInfoInputs.cache
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\SBL\obj\Debug\net5.0\StoreBL.AssemblyInfo.cs
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\SBL\obj\Debug\net5.0\StoreBL.csproj.CoreCompileInputs.cache
-C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\SBL\obj\Debug\net5.0\StoreBL.csproj.CopyComplete
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\SBL\obj\Debug\net5.0\StoreBL.dll
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\SBL\obj\Debug\net5.0\ref\StoreBL.dll
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\SBL\obj\Debug\net5.0\StoreBL.pdb
+C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\SBL\obj\Debug\net5.0\StoreBL.csproj.CopyComplete

@@ -9,7 +9,6 @@ C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\o
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\obj\Debug\net5.0\StoreDL.AssemblyInfoInputs.cache
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\obj\Debug\net5.0\StoreDL.AssemblyInfo.cs
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\obj\Debug\net5.0\StoreDL.csproj.CoreCompileInputs.cache
-C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\obj\Debug\net5.0\StoreDL.csproj.CopyComplete
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\obj\Debug\net5.0\StoreDL.dll
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\obj\Debug\net5.0\ref\StoreDL.dll
 C:\Users\Chase\Documents\211004-Reston-NET\C#_Fundamentals\ProjectZero\StoreDL\obj\Debug\net5.0\StoreDL.pdb

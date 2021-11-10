@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <h2> This is Heading 2</h2>
+    <h6> This is the smallest heading you can have</h6>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div>
+    <a asp-controller="StoreFront" asp-action="Index" class="d-inline p-sm-1 bg-primary text-white"> Click here to go to View StoreFronts</a>
+</div>
+<br />
+<div>
+    <a asp-controller="Customer" asp-action="Index" class="d-inline p-sm-1 bg-primary text-white"> Click here to go to View Customers</a>
+</div>
+<br />
+<div>
+    <a asp-controller="Order" asp-action="Index" class="d-inline p-sm-1 bg-primary text-white"> Click here to View Orders</a>
+</div>

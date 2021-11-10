@@ -119,7 +119,13 @@ namespace SBL
 
         public List<Orders> GetAllOrders()
         {
-            throw new System.NotImplementedException();
+            List<Orders> listOfProducts = _repo.GetAllOrders();
+            for (int i = 0; i < listOfProducts.Count; i++)
+            {
+                listOfProducts[i].OrderId = listOfProducts[i].OrderId;
+            }
+
+            return listOfProducts;
 
             //return listOfOrders;
         }
@@ -179,7 +185,32 @@ namespace SBL
         public List<Orders> GetAllStoreOrdersById(int p_id){
             return _repo.GetAllStoreOrdersById(p_id);
         }
-        
 
+        public List<LineItems> GetAllLineItems()
+        {
+            List<LineItems> listOfStoreOrders = _repo.GetAllLineItems();
+            for (int i = 0; i < listOfStoreOrders.Count; i++)
+            {
+                listOfStoreOrders[i].ItemId = listOfStoreOrders[i].ItemId; 
+            }
+
+            return listOfStoreOrders;
+        }
+
+        public Customer DeleteCustomer(Customer p_customer)
+        {
+            return _repo.DeleteCustomer(p_customer);
+        }
+
+        public Customer GetCustomerById(int p_id)
+        {
+            Customer custFound = _repo.GetCustomerById(p_id);
+
+            if (custFound == null)
+            {
+                throw new Exception("No Customer Was Found");  
+            }
+            return custFound;
+        }
     }
 }

@@ -2,15 +2,15 @@ using System.Collections.Generic;
 using StoreDL;
 using StoreModels;
 using Model = StoreModels;
-using Entity = StoreDL.Entities;
+//using Entity = StoreDL.Entities;
 using System.Linq;
 
 namespace StoreDL{
     public class RepositoryCloud : IRepository
     {
-        private Entity.RRProject0Context _context;
+        private RRProject0Context _context;
 
-        public RepositoryCloud(Entity.RRProject0Context p_context){
+        public RepositoryCloud(RRProject0Context p_context){
             _context = p_context;
         }
         public Store AddStore(Model.Store p_rest)
@@ -25,8 +25,8 @@ namespace StoreDL{
 
         public Customer AddCustomer(Model.Customer p_customer)
         {
-            _context.Customers.Add(
-                new Entity.Customer() {
+            _context.Customer.Add(
+                new Customer() {
                     Name = p_customer.Name,
                     Address = p_customer.Address,
                     Email = p_customer.Email
@@ -39,7 +39,7 @@ namespace StoreDL{
 
         public List<Customer> GetAllCustomers()
         {
-            return _context.Customers.Select(cust =>
+            return _context.Customer.Select(cust =>
                 new Model.Customer(){
                     CustId = cust.CustId,
                     Name = cust.Name,
@@ -69,7 +69,7 @@ namespace StoreDL{
         public StoreFront AddStoreFronts(Model.StoreFront p_storefront)
         {
             _context.StoreFronts.Add(
-                new Entity.StoreFront(){
+                new StoreFront(){
                     Name = p_storefront.Name,
                     Address = p_storefront.Address
                 }
@@ -95,7 +95,10 @@ namespace StoreDL{
             return _context.Orders.Select(ord =>
                 new Model.Orders(){
                     OrderId = ord.OrderId,
-                    Total = ord.Total ?? 0
+                    Total = ord.Total ?? 0,
+                    CustId = ord.CustId,
+                    StoreId = ord.StoreId,
+                    prodId = ord.prodId
                 }
             ).ToList();
         }
@@ -103,7 +106,7 @@ namespace StoreDL{
         public Orders PlaceOrders(Model.Orders p_orders)
         {
             _context.Orders.Add(
-                new Entity.Order() {
+                new Orders() {
                     CustId = p_orders.CustId,
                     StoreId = p_orders.StoreId,
                     prodId = p_orders.prodId,
@@ -152,6 +155,28 @@ namespace StoreDL{
                     prodId = ord.prodId,
                     Total = ord.Total ?? 0
                     }).ToList();
+        }
+
+        public List<LineItems> GetAllLineItems()
+        {
+            return _context.LineItems.Select(li =>
+                new Model.LineItems(){
+                    ItemId = li.ItemId,
+                    Quantity = li.Quantity ?? 0
+                }
+            ).ToList();
+        }
+
+        public Customer DeleteCustomer(Customer p_customer)
+        {
+            _context.Customer.Remove(p_customer);
+            _context.SaveChanges();
+            return p_customer;
+        }
+
+        public Customer GetCustomerById(int p_id)
+        {
+            return _context.Customer.Find(p_id);
         }
     }
 }

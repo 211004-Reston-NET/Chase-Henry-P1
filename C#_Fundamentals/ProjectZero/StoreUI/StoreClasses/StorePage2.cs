@@ -6,7 +6,6 @@ using SBL;
 using StoreModels;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
-using StoreDL.Entities;
 
 namespace StoreUI
 {
