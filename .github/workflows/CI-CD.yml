@@ -38,6 +38,7 @@ jobs:
         path: .\.sonar\scanner
         key: ${{ runner.os }}-sonar-scanner
         restore-keys: ${{ runner.os }}-sonar-scanner
+        sonarTestArgument: C#_Fundamentals/ProjectZero/ --logger trx --collect"xPlat Code Coverage" --DataCollectionRunSetting.DataCollectors.DataCollector.Configuration.Format=opencover
     - name: Install SonarCloud scanner
       if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
       shell: powershell
@@ -47,7 +48,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore C#_Fundamentals/ProjectZero/StoreWebUI
     - name: Test
-      run: dotnet test C#_fundamentals/ProjectZero/ --logger trx --collect:"Xplat Code Coverage" --DataCollectionRunSettings.DataCollector.Configuration.Format=opencover
+      run: dotnet test C#_fundamentals/ProjectZero/ --logger trx --collect:"XPlat Code Coverage" --DataCollectionRunSettings.DataCollector.Configuration.Format=opencover
       
     - name: Build and analyze
       env:
