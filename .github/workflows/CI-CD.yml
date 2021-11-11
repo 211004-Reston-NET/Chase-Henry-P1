@@ -1,0 +1,37 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Setup ASP .NET
+      uses: nuget/setup-nuget@v1
+      with:
+        nuget-version: ${{env.NUGET_VERSION}}
+    - name: Restore dependencies
+      run: dotnet restore C#_Fundamentals/ProjectZero/
+    - name: Build
+      run: dotnet build C#_Fundamentals/ProjectZero/ --configuration Release --no-restore
+    - name: Test
+      run: dotnet test C#_Fundamentals/ProjectZero/ --no-restore --verbosity normal
+    - name: Publish
+      run: dotnet publish C#_Fundamentals/ProjectZero/ --configuration Release -o ./publish
+    - name: Deploy
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 211004WebApp
+        publish-profile: ${{secrets.AZURE_WEBAPP_PUBLISH_PROFILE}}
+        package: ./publish
