@@ -46,16 +46,16 @@ jobs:
         dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
     - name: Restore dependencies
       run: dotnet restore C#_Fundamentals/ProjectZero/StoreWebUI
-#     - name: Test
-#       run: dotnet test C#_fundamentals/ProjectZero/ --logger trx --collect:"Xplat Code Coverage" --DataCollectionRunSettings.DataCollector.Configuration.Format=opencover
-# TODO
+    - name: Test
+      run: dotnet test C#_fundamentals/ProjectZero/ --logger trx --collect:"Xplat Code Coverage" --DataCollectionRunSettings.DataCollector.Configuration.Format=opencover
+      
     - name: Build and analyze
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       shell: powershell
       run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"211004-Reston-NET_Chase-Henry-P1" /o:"211004-reston-net" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"211004-Reston-NET_Chase-Henry-P1" /o:"211004-reston-net" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.exclusions="**StoreWebUI/wwwroot/lib/**" /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml" -d:sonar.vs.vstest.reportsPaths="**/TestResult/*trx"
           dotnet build C#_Fundamentals/ProjectZero/StoreWebUI --configuration Release
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
     - name: Test
@@ -67,13 +67,13 @@ jobs:
       with:
         name: StoreWeb
         path: ./publish
-  deploy:
-    runs-on: windows-latest
-    needs: build
-    environment:
-      name: 'Production'
-      url: $${{steps.deploy-to-webapp.output.webapp-url}}
-    steps:
+#   deploy:
+#     runs-on: windows-latest
+#     needs: build
+#     environment:
+#       name: 'Production'
+#       url: $${{steps.deploy-to-webapp.output.webapp-url}}
+#     steps:
     - name: Deploy
       uses: azure/webapps-deploy@v2
       with:
