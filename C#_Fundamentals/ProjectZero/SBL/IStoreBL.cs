@@ -120,5 +120,7 @@ namespace SBL
         Customer DeleteCustomer(Customer p_customer);
 
         Customer GetCustomerById(int p_id);
+
+        List<Products> GetProductByStoreId(int p_id);
     }
 }

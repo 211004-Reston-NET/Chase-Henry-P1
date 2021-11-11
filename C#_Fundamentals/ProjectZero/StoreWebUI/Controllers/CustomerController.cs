@@ -19,7 +19,7 @@ namespace StoreWebUI.Controllers
         }
 
         // GET: HomeController1
-        public ActionResult Index(string searchString)
+        public ActionResult Index()
         {
 
             return View(_storeBL.GetAllCustomers()

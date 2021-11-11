@@ -100,7 +100,7 @@ namespace StoreModels
 
         public override string ToString()
         {
-            return $"Name: {Name}\nPrice: {Price}\nProduct Id: {ProdId}";
+            return $"Name: {Name}\nPrice: {Price}\nProduct Id: {ProdId}\nStore ID {StoreId}";
             //n==ItemId: {ItemId}\nStoreId: {StoreId}";
         }
 

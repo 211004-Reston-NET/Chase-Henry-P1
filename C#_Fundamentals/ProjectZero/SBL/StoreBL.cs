@@ -212,5 +212,14 @@ namespace SBL
             }
             return custFound;
         }
+
+        public List<Products> GetProductByStoreId(int p_id){
+            return _repo.GetProductByStoreId(p_id);
+        }
+
+        public List<Products> GetAllProductByStoreId(int p_id)
+        {
+            return _repo.GetProductByStoreId(p_id);
+        }
     }
 }

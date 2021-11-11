@@ -115,10 +115,10 @@ namespace StoreDL
 
                 entity.Property(e => e.StoreId).HasColumnName("storeId");
 
-                // entity.HasOne(d => d.Item)
-                //     .WithMany(p => p.Products)
-                //     .HasForeignKey(d => d.ItemId)
-                //     .HasConstraintName("FK__Products__itemId__797309D9");
+                //  entity.HasOne(d => d.item)
+                //      .WithMany(p => p.Products)
+                //      .HasForeignKey(d => d.ItemId)
+                //      .HasConstraintName("FK__Products__itemId__0B91BA14");
 
                 // entity.HasOne(d => d.Store)
                 //     .WithMany(p => p.Products)

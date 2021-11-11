@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using StoreModels;
 using SBL;
 using StoreWebUI.Models;
 
@@ -18,11 +19,18 @@ namespace StoreWebUI.Controllers
         }
 
         // GET: HomeController1
-        public ActionResult Index()
+        public ActionResult Index(int p_id)
         {
-            return View(_storeBL.GetAllProducts()
-                .Select(prod => new ProductVM(prod))
+           
+            return View(_storeBL.GetProductByStoreId(p_id)
+                .Select(store => new ProductVM(store))
                 .ToList());
+
+        }
+
+        public ActionResult Replenish()
+        {
+            return View();
         }
 
         // GET: ProductController/Details/5

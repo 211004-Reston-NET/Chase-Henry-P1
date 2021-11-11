@@ -61,7 +61,8 @@ namespace StoreDL{
                 new Model.Products(){
                     Name = sf.Name,
                     Price = sf.Price,
-                    ProdId = sf.ProdId
+                    ProdId = sf.ProdId,
+                    StoreId = sf.StoreId
                 }
             ).ToList();
         }
@@ -177,6 +178,56 @@ namespace StoreDL{
         public Customer GetCustomerById(int p_id)
         {
             return _context.Customer.Find(p_id);
+        }
+        
+        public List<Products> GetProductByStoreId(int p_id)
+        {
+            return _context.Products.Where(ord => ord.StoreId == p_id)
+                    .Select(ord =>
+                    new Model.Products()
+                    {
+                        Name = ord.Name,
+                        StoreId = ord.StoreId,
+                        Price = ord.Price,
+                        ProdId = ord.ProdId
+                    }).ToList();
+        }
+
+        public List<Products> GetAllProductByStoreId(int p_id)
+        {
+            List<Products> tester = new List<Products>();
+            using (RRProject0Context _context = new RRProject0Context())
+            {
+                    var _listOfAllProductsByStoreId = (from p in _context.Products
+                                                        join li in _context.LineItems 
+                                                        on p.ItemId equals li.ItemId
+                                                        where p.StoreId == p_id
+                                                        select new {
+                                                            ProdId = p.ProdId,
+                                                            Name = p.Name,
+                                                            Price = p.Price,
+                                                            StoreId = p.StoreId,
+                                                            ItemId = p.ItemId,
+                                                            Quantity = li.Quantity
+                                                        });
+                                                    //tester = _listOfAllProductsByStoreId.ToList();
+            }
+
+            return tester;
+    
+            // foreach (var item in _listOfAllProductsByStoreId)
+                    // {
+                    //     Products _item = new Products()
+                    //     {
+                    //         ProdId = item.ProdId,
+                    //         Name = item.Name,
+                    //         Price = item.Price,
+                    //         StoreId = item.StoreId,
+                    //         ItemId = item.ItemId,
+                    //         Quantity = item.Quantity
+                    //     };
+                    // return _listOfAllProductsByStoreId.Add(_context);
+                    // }
         }
     }
 }

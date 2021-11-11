@@ -88,5 +88,10 @@ namespace StoreDL
         Customer DeleteCustomer(Customer p_Customer);
 
         Customer GetCustomerById(int p_id);
+
+        List<Products> GetProductByStoreId(int p_id);
+
+        List<Products> GetAllProductByStoreId(int p_id);
     }
+
 }
