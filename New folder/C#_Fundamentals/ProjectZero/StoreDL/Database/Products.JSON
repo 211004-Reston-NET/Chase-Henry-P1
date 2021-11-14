@@ -1,0 +1,14 @@
+[
+    {
+        "Name": "Test Product",
+        "Price": "1",
+        "Description": "test desc",
+        "Category": "test category"
+    },
+    {
+        "Name": "Test Product2",
+        "Price": "2",
+        "Description": "test desc",
+        "Category": "test category"
+    }
+]

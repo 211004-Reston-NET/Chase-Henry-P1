@@ -186,6 +186,11 @@ namespace SBL
             return _repo.GetAllStoreOrdersById(p_id);
         }
 
+        public List<Orders> GetAllCustomerOrdersById(int p_id)
+        {
+            return _repo.GetAllCustomerOrdersById(p_id);
+        }
+
         public List<LineItems> GetAllLineItems()
         {
             List<LineItems> listOfStoreOrders = _repo.GetAllLineItems();
@@ -217,9 +222,9 @@ namespace SBL
             return _repo.GetProductByStoreId(p_id);
         }
 
-        public List<Products> GetAllProductByStoreId(int p_id)
+        public List<QuantityModel> GetAllProductByStoreId(int p_id)
         {
-            return _repo.GetProductByStoreId(p_id);
+            return _repo.GetAllProductByStoreId(p_id);
         }
     }
 }

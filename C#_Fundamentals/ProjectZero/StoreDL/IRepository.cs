@@ -83,6 +83,8 @@ namespace StoreDL
         List<Orders> GetAllStoreOrders();
         List<Orders> GetAllStoreOrdersById(int p_id);
 
+        List<Orders> GetAllCustomerOrdersById(int p_id);
+
         List<LineItems> GetAllLineItems();
 
         Customer DeleteCustomer(Customer p_Customer);
@@ -91,7 +93,7 @@ namespace StoreDL
 
         List<Products> GetProductByStoreId(int p_id);
 
-        List<Products> GetAllProductByStoreId(int p_id);
+       List<QuantityModel> GetAllProductByStoreId(int p_id);
     }
 
 }

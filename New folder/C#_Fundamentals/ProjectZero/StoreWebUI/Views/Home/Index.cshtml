@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to the Store Manager App</h1>
+    <h2> Select From the Options Below</h2>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div align="center">
+    <a asp-controller="StoreFront" asp-action="Index" class="d-inline p-sm-1 bg-primary text-white"> Click here to go to View StoreFronts</a>
+</div>
+<br />
+<div align="center">
+    <a asp-controller="Customer" asp-action="Index" class="d-inline p-sm-1 bg-primary text-white"> Click here to go to View Customers</a>
+</div>
+<br />
+<div align="center">
+    <a asp-controller="Order" asp-action="Index" class="d-inline p-sm-1 bg-primary text-white"> Click here to View Orders</a>
+</div>

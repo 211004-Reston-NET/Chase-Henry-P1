@@ -1,0 +1,38 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model StoreWebUI.Models.OrderVM
+
+<h1 class="display-4">Place Order</h1>
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="mb-3">
+        <label asp-for="Total" class="form-label">Total</label>
+        <input asp-for="Total" type="text" class="form-control">
+        <span asp-validation-for="Total" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CustId" class="form-label">Customer ID</label>
+        <input asp-for="CustId" type="text" class="form-control">
+        <span asp-validation-for="CustId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="StoreId" class="form-label">Store ID</label>
+        <input asp-for="StoreId" type="text" class="form-control">
+        <span asp-validation-for="StoreId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="prodId" class="form-label">Product ID</label>
+        <input asp-for="prodId" type="text" class="form-control">
+        <span asp-validation-for="prodId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary" value="Create">Submit</button>
+</form>

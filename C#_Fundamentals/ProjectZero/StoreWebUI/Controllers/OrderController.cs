@@ -32,6 +32,13 @@ namespace StoreWebUI.Controllers
                 .ToList());
         }
 
+        public ActionResult CustomerOrders(int p_id)
+        {
+            return View(_storeBL.GetAllCustomerOrdersById(p_id)
+                .Select(ord => new OrderVM(ord))
+                .ToList());
+        }
+
         // GET: OrderController/Details/5
         public ActionResult Details(int id)
         {

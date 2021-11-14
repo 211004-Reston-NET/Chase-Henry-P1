@@ -115,6 +115,7 @@ namespace SBL
         /// <returns>It will return restaurants it found</returns>
         List<Orders> GetCustomerOrders(int p_name);
         List<Orders> GetAllStoreOrdersById(int p_id);
+        List<Orders> GetAllCustomerOrdersById(int p_id);
 
         List<LineItems> GetAllLineItems();
         Customer DeleteCustomer(Customer p_customer);
@@ -122,5 +123,6 @@ namespace SBL
         Customer GetCustomerById(int p_id);
 
         List<Products> GetProductByStoreId(int p_id);
+        List<QuantityModel> GetAllProductByStoreId(int p_id);
     }
 }

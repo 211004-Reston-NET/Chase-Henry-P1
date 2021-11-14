@@ -92,11 +92,11 @@ namespace StoreModels
 
     public class Products {
         //TODO properties: name, price, desc (optional), category (optional)
-        public int ProdId {get; set;}
-        public int? ItemId {get; set;}
+        public int ProdId { get; set; }
+        public int? ItemId { get; set; }
         public string Name { get; set; }
         public int? Price { get; set; }
-        public int? StoreId {get; set;}
+        public int? StoreId { get; set; }
 
         public override string ToString()
         {
@@ -104,9 +104,32 @@ namespace StoreModels
             //n==ItemId: {ItemId}\nStoreId: {StoreId}";
         }
 
+
+    }
+
     public class Singleton {
         public static StoreFront viewStoreFront;
         public static Customer viewCustomer;
     }
+
+
+    public class QuantityModel
+    {
+        //TODO properties: name, price, desc (optional), category (optional)
+        public int ProdId { get; set; }
+        public int? ItemId { get; set; }
+        public string Name { get; set; }
+        public int? Price { get; set; }
+        public int? StoreId { get; set; }
+        public int? Quantity { get; set; }
+
+        public override string ToString()
+        {
+            return $"Name: {Name}\nPrice: {Price}\nProduct Id: {ProdId}\nStore ID {StoreId}\nQuantity: {Quantity}";
+            //n==ItemId: {ItemId}\nStoreId: {StoreId}";
+        }
+
+
     }
+
 }

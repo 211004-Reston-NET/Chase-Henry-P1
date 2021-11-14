@@ -1,0 +1,22 @@
+[
+  {
+    "ListOfLineItems": "Product List 1",
+    "StoreFrontAddress": "Storefront avenue",
+    "Total": "1"
+  },
+  {
+    "ListOfLineItems": "Product list2",
+    "StoreFrontAddress": "Storefront avenue",
+    "Total": null
+  },
+  {
+    "ListOfLineItems": null,
+    "StoreFrontAddress": null,
+    "Total": null
+  },
+  {
+    "ListOfLineItems": null,
+    "StoreFrontAddress": null,
+    "Total": null
+  }
+]

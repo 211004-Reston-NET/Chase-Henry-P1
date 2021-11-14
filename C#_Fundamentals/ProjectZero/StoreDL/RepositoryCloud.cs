@@ -158,6 +158,20 @@ namespace StoreDL{
                     }).ToList();
         }
 
+        public List<Orders> GetAllCustomerOrdersById(int p_id)
+        {
+            return _context.Orders.Where(ord => ord.CustId == p_id)
+                    .Select(ord =>
+                    new Model.Orders()
+                    {
+                        OrderId = ord.OrderId,
+                        StoreId = ord.StoreId,
+                        CustId = ord.CustId,
+                        prodId = ord.prodId,
+                        Total = ord.Total ?? 0
+                    }).ToList();
+        }
+
         public List<LineItems> GetAllLineItems()
         {
             return _context.LineItems.Select(li =>
@@ -193,41 +207,25 @@ namespace StoreDL{
                     }).ToList();
         }
 
-        public List<Products> GetAllProductByStoreId(int p_id)
+        public List<QuantityModel> GetAllProductByStoreId(int p_id)
         {
-            List<Products> tester = new List<Products>();
-            using (RRProject0Context _context = new RRProject0Context())
-            {
                     var _listOfAllProductsByStoreId = (from p in _context.Products
                                                         join li in _context.LineItems 
                                                         on p.ItemId equals li.ItemId
                                                         where p.StoreId == p_id
-                                                        select new {
+                                                        select new QuantityModel{
                                                             ProdId = p.ProdId,
                                                             Name = p.Name,
                                                             Price = p.Price,
                                                             StoreId = p.StoreId,
                                                             ItemId = p.ItemId,
                                                             Quantity = li.Quantity
-                                                        });
-                                                    //tester = _listOfAllProductsByStoreId.ToList();
-            }
+                                                        }).ToList();
 
-            return tester;
+            return _listOfAllProductsByStoreId;
+        }
+
+            
     
-            // foreach (var item in _listOfAllProductsByStoreId)
-                    // {
-                    //     Products _item = new Products()
-                    //     {
-                    //         ProdId = item.ProdId,
-                    //         Name = item.Name,
-                    //         Price = item.Price,
-                    //         StoreId = item.StoreId,
-                    //         ItemId = item.ItemId,
-                    //         Quantity = item.Quantity
-                    //     };
-                    // return _listOfAllProductsByStoreId.Add(_context);
-                    // }
         }
     }
-}

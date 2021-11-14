@@ -1,0 +1,28 @@
+FROM mcr.microsoft.com/dotnet/sdk:5.0 as build
+
+WORKDIR /app
+
+COPY *.sln ./
+COPY SBL/*.csproj SBL/
+COPY StoreDL/*.csproj StoreDL/
+COPY StoreTest/*.csproj StoreTest/
+COPY StoreModels/*.csproj StoreModels/
+COPY StoreWebUI/*.csproj StoreWebUI/
+
+RUN cd StoreWebUI && dotnet restore
+
+COPY . ./
+
+# dotnet publish -c Release -o publish --no-restore
+
+RUN dotnet publish StoreWebUI -c Release -o publish --no-restore
+
+# FROM mcr.microsoft.com/dotnet/asp:5.0 as runtime
+# docker build -t scifiler/rrwebmvc:1.0 .
+# docker run -d -p 5001:80 -t chase/rrwebmvc:1.0
+FROM mcr.microsoft.com/dotnet/aspnet:5.0 as runtime
+
+WORKDIR /app
+COPY --from=build /app/publish ./
+
+CMD ["dotnet", "StoreWebUI.dll"]

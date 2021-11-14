@@ -21,9 +21,9 @@ namespace StoreWebUI.Controllers
         // GET: HomeController1
         public ActionResult Index(int p_id)
         {
-           
-            return View(_storeBL.GetProductByStoreId(p_id)
-                .Select(store => new ProductVM(store))
+
+            return View(_storeBL.GetAllProductByStoreId(p_id)
+                .Select(store => new QuantityVM(store))
                 .ToList());
 
         }

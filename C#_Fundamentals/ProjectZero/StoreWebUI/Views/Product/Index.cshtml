@@ -4,7 +4,7 @@
 @{
 }
 
-@model IEnumerable<StoreWebUI.Models.ProductVM>
+@model IEnumerable<StoreWebUI.Models.QuantityVM>
 
 <h1> List of Store Products</h1>
 
@@ -17,7 +17,7 @@
             <th>Name</th>
             <th>Price</th>
             <th>Store ID</th>
-            <th></th>
+            <th>Quantity</th>
         </tr>
     </thead>
     <tbody>
@@ -28,6 +28,7 @@
             <td>@Html.DisplayFor(modelItem => prod.Name)</td>
             <td>@Html.DisplayFor(modelItem => prod.Price)</td>
             <td>@Html.DisplayFor(modelItem => prod.StoreId)</td>
+            <td>@Html.DisplayFor(modelItem => prod.Quantity)</td>
             <td>
                 <button class="btn btn-primary text-white" style="color: white">
                     Replenish Inventory

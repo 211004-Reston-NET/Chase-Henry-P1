@@ -1,0 +1,14 @@
+[
+  {
+    "Name": "Test Customer",
+    "Address": "Test Street",
+    "Email": "Test@gmail.com",
+    "ListOfOrders": null
+  },
+  {
+    "Name": "Steve",
+    "Address": "1519 Docs Dead End",
+    "Email": "Chasehenry98@outlook.com",
+    "ListOfOrders": null
+  }
+]
