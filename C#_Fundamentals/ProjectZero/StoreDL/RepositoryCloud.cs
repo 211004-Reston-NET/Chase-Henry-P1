@@ -207,6 +207,17 @@ namespace StoreDL{
                     }).ToList();
         }
 
+        public List<LineItems> GetAllLineItemsById(int p_id)
+        {
+            return _context.LineItems.Where(ord => ord.ItemId == p_id)
+                    .Select(ord =>
+                    new Model.LineItems()
+                    {
+                        ItemId = ord.ItemId,
+                        Quantity = ord.Quantity
+                    }).ToList();
+        }
+
         public List<QuantityModel> GetAllProductByStoreId(int p_id)
         {
                     var _listOfAllProductsByStoreId = (from p in _context.Products
@@ -225,7 +236,20 @@ namespace StoreDL{
             return _listOfAllProductsByStoreId;
         }
 
-            
-    
+        public List<LineItems> AddInventory(int p_id)
+        {
+            var _listOfAllProductsByStoreId = (from li in _context.LineItems
+                                               where li.ItemId == p_id
+                                               select new LineItems
+                                               {
+                                                   ItemId = li.ItemId,
+                                                   Quantity = li.Quantity + 1
+                                               }).ToList();
+            //_context.SaveChanges();
+            return _listOfAllProductsByStoreId;
         }
+
+
+
+    }
     }

@@ -94,6 +94,8 @@ namespace StoreDL
         List<Products> GetProductByStoreId(int p_id);
 
        List<QuantityModel> GetAllProductByStoreId(int p_id);
+       List<LineItems> GetAllLineItemsById(int p_id);
+       List<LineItems> AddInventory(int p_id);
     }
 
 }

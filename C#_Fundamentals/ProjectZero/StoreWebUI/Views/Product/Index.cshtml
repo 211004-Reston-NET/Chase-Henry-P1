@@ -30,8 +30,8 @@
             <td>@Html.DisplayFor(modelItem => prod.StoreId)</td>
             <td>@Html.DisplayFor(modelItem => prod.Quantity)</td>
             <td>
-                <button class="btn btn-primary text-white" style="color: white">
-                    Replenish Inventory
+                <button class="btn btn-primary" style="color: white">
+                    @Html.ActionLink("Select Product", "ReplenishInventory", "Product", new { p_id = prod.ProdId }, new { @style = "color: white" })
                 </button>
             </td>
         </tr>

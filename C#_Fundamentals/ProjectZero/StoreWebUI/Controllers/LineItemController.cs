@@ -25,6 +25,13 @@ namespace StoreWebUI.Controllers
                 .ToList());
         }
 
+        public ActionResult ReplenishInventory(int p_id)
+        {
+            return View(_storeBL.GetAllLineItemsById(p_id)
+                .Select(li => new LineItemVM(li))
+                .ToList());
+        }
+
         // GET: LineItemController/Details/5
         public ActionResult Details(int id)
         {

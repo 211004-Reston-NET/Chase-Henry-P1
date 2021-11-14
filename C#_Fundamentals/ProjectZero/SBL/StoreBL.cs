@@ -37,7 +37,7 @@ namespace SBL
             List<Store> listOfStore = _repo.GetAllStore();
             for (int i = 0; i < listOfStore.Count; i++)
             {
-                listOfStore[i].Name = listOfStore[i].Name.ToLower(); 
+                listOfStore[i].Name = listOfStore[i].Name.ToLower();
             }
 
             return listOfStore;
@@ -48,32 +48,32 @@ namespace SBL
             return _repo.AddCustomer(p_customer);
         }
 
-         public List<Customer> GetAllCustomers()
+        public List<Customer> GetAllCustomers()
         {
             //Maybe my business operation needs to capitalize every name of a restaurant
             List<Customer> listOfCustomer = _repo.GetAllCustomers();
             for (int i = 0; i < listOfCustomer.Count; i++)
             {
-                listOfCustomer[i].Name = listOfCustomer[i].Name.ToLower(); 
+                listOfCustomer[i].Name = listOfCustomer[i].Name.ToLower();
             }
 
             return listOfCustomer;
         }
 
-        
+
 
         public StoreFront AddProducts(StoreFront p_products)
         {
             return _repo.AddProducts(p_products);
         }
 
-         public List<Products> GetAllProducts()
+        public List<Products> GetAllProducts()
         {
             //Maybe my business operation needs to capitalize every name of a restaurant
             List<Products> listOfProducts = _repo.GetAllProducts();
             for (int i = 0; i < listOfProducts.Count; i++)
             {
-                listOfProducts[i].Name = listOfProducts[i].Name.ToLower(); 
+                listOfProducts[i].Name = listOfProducts[i].Name.ToLower();
             }
 
             return listOfProducts;
@@ -82,7 +82,7 @@ namespace SBL
         public List<Customer> GetCustomer(string p_name)
         {
             List<Customer> listOfCustomer = _repo.GetAllCustomers();
-            
+
             //Select method will give a list of boolean if the condition was true/false
             //Where method will give the actual element itself based on some condition
             //ToList method will convert into List that our method currently needs to return.
@@ -95,7 +95,7 @@ namespace SBL
             List<StoreFront> listOfStoreFronts = _repo.GetAllStoreFronts();
             for (int i = 0; i < listOfStoreFronts.Count; i++)
             {
-                listOfStoreFronts[i].Name = listOfStoreFronts[i].Name.ToLower(); 
+                listOfStoreFronts[i].Name = listOfStoreFronts[i].Name.ToLower();
             }
 
             return listOfStoreFronts;
@@ -109,7 +109,7 @@ namespace SBL
         public List<StoreFront> GetStoreFront(string p_name)
         {
             List<StoreFront> listOfStoreFronts = _repo.GetAllStoreFronts();
-            
+
             //Select method will give a list of boolean if the condition was true/false
             //Where method will give the actual element itself based on some condition
             //ToList method will convert into List that our method currently needs to return.
@@ -138,7 +138,7 @@ namespace SBL
         public List<Orders> GetOrders(string p_orders)
         {
             // List<Orders> listOfOrders = _repo.GetAllOrders();
-            
+
             // //Select method will give a list of boolean if the condition was true/false
             // //Where method will give the actual element itself based on some condition
             // //ToList method will convert into List that our method currently needs to return.
@@ -149,11 +149,11 @@ namespace SBL
 
         public List<Orders> GetAllCustomerOrders()
         {
-            
+
             List<Orders> listOfCustomerOrders = _repo.GetAllCustomerOrders();
             for (int i = 0; i < listOfCustomerOrders.Count; i++)
             {
-                listOfCustomerOrders[i].CustId = listOfCustomerOrders[i].CustId; 
+                listOfCustomerOrders[i].CustId = listOfCustomerOrders[i].CustId;
             }
 
             return listOfCustomerOrders;
@@ -161,11 +161,11 @@ namespace SBL
 
         public List<Orders> GetAllStoreOrders()
         {
-            
+
             List<Orders> listOfStoreOrders = _repo.GetAllStoreOrders();
             for (int i = 0; i < listOfStoreOrders.Count; i++)
             {
-                listOfStoreOrders[i].Total = listOfStoreOrders[i].Total; 
+                listOfStoreOrders[i].Total = listOfStoreOrders[i].Total;
             }
 
             return listOfStoreOrders;
@@ -174,15 +174,16 @@ namespace SBL
         public List<Orders> GetCustomerOrders(int p_name)
         {
             List<Orders> listOfCustomer = _repo.GetAllCustomerOrders();
-            
+
             //Select method will give a list of boolean if the condition was true/false
             //Where method will give the actual element itself based on some condition
             //ToList method will convert into List that our method currently needs to return.
             //ToLower will lowercase the string to make it not case sensitive
-            return listOfCustomer.Where(cust => cust.CustId==(p_name)).ToList();
+            return listOfCustomer.Where(cust => cust.CustId == (p_name)).ToList();
         }
 
-        public List<Orders> GetAllStoreOrdersById(int p_id){
+        public List<Orders> GetAllStoreOrdersById(int p_id)
+        {
             return _repo.GetAllStoreOrdersById(p_id);
         }
 
@@ -196,7 +197,7 @@ namespace SBL
             List<LineItems> listOfStoreOrders = _repo.GetAllLineItems();
             for (int i = 0; i < listOfStoreOrders.Count; i++)
             {
-                listOfStoreOrders[i].ItemId = listOfStoreOrders[i].ItemId; 
+                listOfStoreOrders[i].ItemId = listOfStoreOrders[i].ItemId;
             }
 
             return listOfStoreOrders;
@@ -213,12 +214,13 @@ namespace SBL
 
             if (custFound == null)
             {
-                throw new Exception("No Customer Was Found");  
+                throw new Exception("No Customer Was Found");
             }
             return custFound;
         }
 
-        public List<Products> GetProductByStoreId(int p_id){
+        public List<Products> GetProductByStoreId(int p_id)
+        {
             return _repo.GetProductByStoreId(p_id);
         }
 
@@ -226,5 +228,16 @@ namespace SBL
         {
             return _repo.GetAllProductByStoreId(p_id);
         }
+
+        public List<LineItems> GetAllLineItemsById(int p_id)
+        {
+            return _repo.GetAllLineItemsById(p_id);
+        }
+
+        public List<LineItems> AddInventory(int p_id)
+        {
+            return _repo.AddInventory(p_id);
+        }
+
     }
 }

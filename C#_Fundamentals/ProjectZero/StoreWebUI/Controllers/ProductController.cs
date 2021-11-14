@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using StoreModels;
 using SBL;
 using StoreWebUI.Models;
+using StoreDL;
 
 namespace StoreWebUI.Controllers
 {
@@ -26,6 +27,21 @@ namespace StoreWebUI.Controllers
                 .Select(store => new QuantityVM(store))
                 .ToList());
 
+        }
+
+        public ActionResult ReplenishInventory(int p_id)
+        {
+            return View(_storeBL.GetAllLineItemsById(p_id)
+                .Select(li => new LineItemVM(li))
+                .ToList());
+        }
+
+        public ActionResult AddInventory(int p_id)
+        {
+            return View(_storeBL.AddInventory(p_id)
+                .Select(li => new LineItemVM(li))
+                .ToList());
+            //_context.SaveChanges();
         }
 
         public ActionResult Replenish()
