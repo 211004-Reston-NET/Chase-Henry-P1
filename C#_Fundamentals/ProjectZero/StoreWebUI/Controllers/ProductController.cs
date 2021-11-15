@@ -38,9 +38,11 @@ namespace StoreWebUI.Controllers
 
         public ActionResult AddInventory(int p_id)
         {
-            return View(_storeBL.AddInventory(p_id)
-                .Select(li => new LineItemVM(li))
-                .ToList());
+
+            return View(_storeBL.AddInvent(p_id));
+            //return View(_storeBL.AddInventory(p_id)
+            //    .Select(li => new LineItemVM(li))
+            //     .ToList());
             //_context.SaveChanges();
         }
 

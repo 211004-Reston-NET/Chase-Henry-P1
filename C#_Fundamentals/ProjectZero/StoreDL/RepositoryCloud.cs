@@ -245,7 +245,15 @@ namespace StoreDL{
                                                    ItemId = li.ItemId,
                                                    Quantity = li.Quantity + 1
                                                }).ToList();
-            //_context.SaveChanges();
+            _context.SaveChanges();
+            return _listOfAllProductsByStoreId;
+        }
+
+        public LineItems AddInvent(int p_id)
+        {
+            var _listOfAllProductsByStoreId = _context.LineItems.FirstOrDefault(a => a.ItemId == p_id);
+           _listOfAllProductsByStoreId.Quantity = _listOfAllProductsByStoreId.Quantity + 1;
+            _context.SaveChanges();
             return _listOfAllProductsByStoreId;
         }
 
