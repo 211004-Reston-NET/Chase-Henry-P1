@@ -56,21 +56,11 @@ namespace StoreDL
             modelBuilder.Entity<LineItems>(entity =>
             {
                 entity.HasKey(e => e.ItemId)
-                    .HasName("PK__LineItem__56A128AAC85AB9FF");
+                    .HasName("PK__LineItem__56A128AAF1727694");
 
                 entity.Property(e => e.ItemId).HasColumnName("itemId");
-
-                entity.Property(e => e.OrderId).HasColumnName("orderId");
-
-                entity.Property(e => e.Product)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                // entity.HasOne(d => d.Orders)
-                //     .WithMany(p => p.LineItems)
-                //     .HasForeignKey(d => d.OrderId)
-                //     .HasConstraintName("FK__LineItems__order__6EF57B66");
             });
+
 
             modelBuilder.Entity<Orders>(entity =>
             {
@@ -115,16 +105,21 @@ namespace StoreDL
 
                 entity.Property(e => e.StoreId).HasColumnName("storeId");
 
-                //  entity.HasOne(d => d.item)
-                //      .WithMany(p => p.Products)
-                //      .HasForeignKey(d => d.ItemId)
-                //      .HasConstraintName("FK__Products__itemId__0B91BA14");
-
-                // entity.HasOne(d => d.Store)
-                //     .WithMany(p => p.Products)
-                //     .HasForeignKey(d => d.StoreId)
-                //     .HasConstraintName("FK__Products__storeI__7A672E12");
+                //entity.HasOne(d => d.item)
+                 //   .WithMany(p => p.Products)
+                 //   .HasForeignKey(d => d.ItemId)
+                 //   .HasConstraintName("FK__Products__itemId__0B91BA14");
             });
+
+            //  entity.HasOne(d => d.item)
+            //      .WithMany(p => p.Products)
+            //      .HasForeignKey(d => d.ItemId)
+            //      .HasConstraintName("FK__Products__itemId__0B91BA14");
+
+            // entity.HasOne(d => d.Store)
+            //     .WithMany(p => p.Products)
+            //     .HasForeignKey(d => d.StoreId)
+            //     .HasConstraintName("FK__Products__storeI__7A672E12");
 
             modelBuilder.Entity<StoreFront>(entity =>
             {
@@ -142,14 +137,8 @@ namespace StoreDL
                 entity.Property(e => e.Name)
                     .HasMaxLength(50)
                     .IsUnicode(false);
-
-                entity.Property(e => e.OrderId).HasColumnName("orderId");
-
-                // entity.HasOne(d => d.Order)
-                //     .WithMany(p => p.StoreFronts)
-                //     .HasForeignKey(d => d.OrderId)
-                //     .HasConstraintName("FK__StoreFron__order__71D1E811");
             });
+
 
             OnModelCreatingPartial(modelBuilder);
         }

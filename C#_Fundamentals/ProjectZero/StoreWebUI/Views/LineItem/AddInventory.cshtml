@@ -25,7 +25,7 @@
                 <td>@Html.DisplayFor(modelItem => prod.Quantity)</td>
                 <td>
                     <button class="btn btn-primary" style="color: white">
-                        @Html.ActionLink("Add Inventory", "AddInventory", "Product", new { p_id = prod.ItemId }, new { @style = "color: white" })
+                        @Html.ActionLink("Add Inventory", "AddInventory", "LineItem", new { p_id = prod.ItemId }, new { @style = "color: white" })
                     </button>
                 </td>
             </tr>

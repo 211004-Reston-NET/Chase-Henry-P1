@@ -40,10 +40,13 @@ namespace StoreWebUI.Controllers
         {
 
             return View(_storeBL.AddInvent(p_id));
+
+            //_storeBL.DeleteCustomer(toBeDeleted);
+            //return RedirectToAction(nameof(Index));
+
             //return View(_storeBL.AddInventory(p_id)
             //    .Select(li => new LineItemVM(li))
-            //     .ToList());
-            //_context.SaveChanges();
+            //    .ToList());
         }
 
         public ActionResult Replenish()

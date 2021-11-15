@@ -193,7 +193,12 @@ namespace StoreDL{
         {
             return _context.Customer.Find(p_id);
         }
-        
+
+        public LineItems GetLineItemById(int p_id)
+        {
+            return _context.LineItems.Find(p_id);
+        }
+
         public List<Products> GetProductByStoreId(int p_id)
         {
             return _context.Products.Where(ord => ord.StoreId == p_id)
@@ -245,6 +250,7 @@ namespace StoreDL{
                                                    ItemId = li.ItemId,
                                                    Quantity = li.Quantity + 1
                                                }).ToList();
+            _context.Update(_listOfAllProductsByStoreId);
             _context.SaveChanges();
             return _listOfAllProductsByStoreId;
         }

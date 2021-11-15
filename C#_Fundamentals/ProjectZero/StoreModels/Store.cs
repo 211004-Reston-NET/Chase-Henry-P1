@@ -80,13 +80,11 @@ namespace StoreModels
     public class LineItems {
         //TODO properties: product, quantity
         public int ItemId {get; set;}
-        public int? OrderId {get; set;}
-        public string Product { get; set; }
         public int? Quantity { get; set; }
 
         public override string ToString()
         {
-            return $"Product: {Product}\nQuantity: {Quantity}\nOrderId: {OrderId}\nItemId: {ItemId}";
+            return $"Quantity: {Quantity}\nItemId: {ItemId}";
         }
     }
 

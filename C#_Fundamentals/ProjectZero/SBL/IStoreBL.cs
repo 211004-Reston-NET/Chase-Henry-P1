@@ -129,6 +129,7 @@ namespace SBL
         List<LineItems> AddInventory(int p_id);
 
         LineItems AddInvent(int p_id);
+        LineItems GetLineItemById(int p_id);
 
     }
 }

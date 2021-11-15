@@ -97,6 +97,8 @@ namespace StoreDL
        List<LineItems> GetAllLineItemsById(int p_id);
        List<LineItems> AddInventory(int p_id);
        LineItems AddInvent(int p_id);
+
+        LineItems GetLineItemById(int p_id);
     }
 
 }

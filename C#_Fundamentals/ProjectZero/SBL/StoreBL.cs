@@ -244,5 +244,10 @@ namespace SBL
             return _repo.AddInvent(p_id);
         }
 
+        public LineItems GetLineItemById(int p_id)
+        {
+            return _repo.GetLineItemById(p_id);
+        }
+
     }
 }
