@@ -38,7 +38,7 @@ jobs:
         path: .\.sonar\scanner
         key: ${{ runner.os }}-sonar-scanner
         restore-keys: ${{ runner.os }}-sonar-scanner
-        sonarTestArgument: C#_Fundamentals/ProjectZero/ --logger trx --collect"xPlat Code Coverage" --DataCollectionRunSetting.DataCollectors.DataCollector.Configuration.Format=opencover
+
     - name: Install SonarCloud scanner
       if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
       shell: powershell
@@ -48,7 +48,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore C#_Fundamentals/ProjectZero/StoreWebUI
     - name: Test
-      run: dotnet test C#_fundamentals/ProjectZero/ --logger trx --collect:"XPlat Code Coverage" --DataCollectionRunSettings.DataCollector.Configuration.Format=opencover
+      run: dotnet test C#_fundamentals/ProjectZero/ --logger trx --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
       
     - name: Build and analyze
       env:
@@ -56,29 +56,34 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       shell: powershell
       run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"211004-Reston-NET_Chase-Henry-P1" /o:"211004-reston-net" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.exclusions="**StoreWebUI/wwwroot/lib/**" /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml" -d:sonar.vs.vstest.reportsPaths="**/TestResult/*trx"
+         .\.sonar\scanner\dotnet-sonarscanner begin /k:"211004-Reston-NET_Chase-Henry-P1" /o:"211004-reston-net" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.exclusions="**StoreWebUI/wwwroot/lib/**" /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml" -d:sonar.vs.vstest.reportsPaths="**/TestResult/*trx"
           dotnet build C#_Fundamentals/ProjectZero/StoreWebUI --configuration Release
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
-    - name: Test
-      run: dotnet test C#_Fundamentals/ProjectZero/StoreWebUI --no-restore --verbosity normal
+          
+          
+          #Job to deploying our repository to the Azure webapp
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest # Using ubuntu this time
+    environment:
+      name: 'Production' # Let's us setup an environment named publish and you can see it in my repository
+      
+    steps:
+    #Sets our SDK again
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+          
     - name: Publish
       run: dotnet publish C#_Fundamentals/ProjectZero/StoreWebUI --configuration Release -o ./publish
-    - name: Upload sonarscanner report
-      uses: actions/upload-artifact@v2
-      with:
-        name: StoreWeb
-        path: ./publish
-#   deploy:
-#     runs-on: windows-latest
-#     needs: build
-#     environment:
-#       name: 'Production'
-#       url: $${{steps.deploy-to-webapp.output.webapp-url}}
-#     steps:
+
     - name: Deploy
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 211004WebApp
+        app-name: 211004WebApp #Web App Name
         slot-name: 'Production'
         publish-profile: ${{secrets.AZURE_WEBAPP_PUBLISH_PROFILE}}
         package: ./publish
+        
