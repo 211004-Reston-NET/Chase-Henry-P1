@@ -381,5 +381,6 @@ namespace SBL
         {
             return _repo.GetSortOrder();
         }
+
     }
 }
