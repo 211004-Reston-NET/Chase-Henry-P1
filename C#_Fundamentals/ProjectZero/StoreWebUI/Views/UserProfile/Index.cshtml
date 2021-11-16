@@ -1,0 +1,24 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<StoreWebUI.Models.UserProfileVM>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to the Store Manager App</h1>
+    <h2> Login Below</h2>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<form asp-action="Login" asp-controller="UserProfile">
+    <div class="container" align="left">
+        <label for="UserName"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="UserName" required>
+        <br />
+        <label for="Password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="Password" required>
+
+        <button type="submit" value="Login">Login</button>
+    </div>
+</form>

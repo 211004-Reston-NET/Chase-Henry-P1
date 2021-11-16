@@ -18,4 +18,8 @@
     <ProjectReference Include="..\StoreModels\StoreModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Junk\" />
+  </ItemGroup>
+
 </Project>

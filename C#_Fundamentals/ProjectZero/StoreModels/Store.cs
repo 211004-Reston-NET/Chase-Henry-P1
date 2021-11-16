@@ -130,4 +130,19 @@ namespace StoreModels
 
     }
 
+    public class UserProfile
+    {
+        //TODO properties: product, quantity
+        public int UserId { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+
+        public int IsActive { get; set; }
+
+        public override string ToString()
+        {
+            return $"User ID: {UserId}\nUser Name: {UserName}\nPassword: {Password}\nIs Active: {IsActive}";
+        }
+    }
+
 }
