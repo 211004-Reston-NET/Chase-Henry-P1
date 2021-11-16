@@ -2,4 +2,4 @@
 
 #ER Diagram
 
-![alt text](https://imgur.com/a/QZHomSu)
+![ER Diagram](https://imgur.com/a/AxdjJet)
