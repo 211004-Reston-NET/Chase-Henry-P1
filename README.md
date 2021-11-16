@@ -2,4 +2,4 @@
 
 #ER Diagram
 
-!(https://imgur.com/a/AxdjJet)
+https://imgur.com/a/AxdjJet
