@@ -12,7 +12,7 @@
 </div>
 <br />
 <div class="text-sm-left">
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Search","Customer"))
     {
         <p>
             Find by name: @Html.TextBox("SearchString")

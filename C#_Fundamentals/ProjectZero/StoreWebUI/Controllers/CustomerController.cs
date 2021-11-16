@@ -7,14 +7,17 @@ using System.Threading.Tasks;
 using StoreModels;
 using SBL;
 using StoreWebUI.Models;
+using StoreDL;
 
 namespace StoreWebUI.Controllers
 {
     public class CustomerController : Controller
     {
         private IStoreBL _storeBL;
-        public CustomerController(IStoreBL p_storeBL)
+        private RRProject0Context _context;
+        public CustomerController(IStoreBL p_storeBL, RRProject0Context p_context)
         {
+            _context = p_context;
             _storeBL = p_storeBL;
         }
 
@@ -29,6 +32,14 @@ namespace StoreWebUI.Controllers
         public ActionResult Delete(int p_id)
         {
             return View(new CustomerVM(_storeBL.GetCustomerById(p_id)));
+            //return View();
+        }
+
+        public ActionResult Search(string SearchString)
+        {
+            return View(_context.Customer.Where( x => x.Name == SearchString)
+                .Select(cust => new CustomerVM(cust))
+                .ToList());
             //return View();
         }
 
