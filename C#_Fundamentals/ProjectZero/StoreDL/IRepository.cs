@@ -99,6 +99,8 @@ namespace StoreDL
        LineItems AddInvent(int p_id);
 
         LineItems GetLineItemById(int p_id);
+
+        List<Orders> GetSortOrder();
     }
 
 }

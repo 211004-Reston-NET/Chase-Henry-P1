@@ -263,7 +263,15 @@ namespace StoreDL{
             return _listOfAllProductsByStoreId;
         }
 
+        public List<Orders> GetSortOrder()
+        {
+            var _sort = (from o in _context.Orders
+                         orderby o.Total
+                         select o
 
+                ).ToList();
+            return _sort;
+        }
 
     }
     }

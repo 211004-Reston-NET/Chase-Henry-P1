@@ -249,5 +249,9 @@ namespace SBL
             return _repo.GetLineItemById(p_id);
         }
 
+        public List<Orders> GetSortOrder()
+        {
+            return _repo.GetSortOrder();
+        }
     }
 }

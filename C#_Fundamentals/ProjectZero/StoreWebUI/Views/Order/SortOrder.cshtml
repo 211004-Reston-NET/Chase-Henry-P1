@@ -23,13 +23,13 @@
     </tr>
     @foreach (OrderVM item in Model)
     {
-<tr>
-    <td>@Html.DisplayFor(modelItem => item.OrderId)</td>
-    <td>@Html.DisplayFor(modelItem => item.Total)</td>
-    <td>@Html.DisplayFor(modelItem => item.CustId)</td>
-    <td>@Html.DisplayFor(modelItem => item.StoreId)</td>
-    <td>@Html.DisplayFor(modelItem => item.prodId)</td>
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.OrderId)</td>
+            <td>@Html.DisplayFor(modelItem => item.Total)</td>
+            <td>@Html.DisplayFor(modelItem => item.CustId)</td>
+            <td>@Html.DisplayFor(modelItem => item.StoreId)</td>
+            <td>@Html.DisplayFor(modelItem => item.prodId)</td>
 
-</tr>
-    }
+        </tr>
+}
 </table>

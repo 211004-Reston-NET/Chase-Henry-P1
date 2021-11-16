@@ -74,6 +74,14 @@ namespace StoreWebUI.Controllers
             return View();
         }
 
+        public IActionResult SortOrder()
+        {
+            return View(_storeBL.GetSortOrder()
+                .Select(ord => new OrderVM(ord))
+                .ToList());
+        }
+
+
         // GET: OrderController/Edit/5
         public ActionResult Edit(int id)
         {

@@ -7,16 +7,7 @@
 @model IEnumerable<StoreWebUI.Models.StoreFrontVM>
 
 <h1> List of StoreFronts</h1>
-<div class="text-sm-left">
-    @using (Html.BeginForm())
-    {
-        <p>
-            Find by name: @Html.TextBox("SearchString")
-            <input type="submit" value="Search" />
-        </p>
-    }
-    @*<a asp-controller="Customer" asp-action="Index"> Click here to search for a customer</a>*@
-</div>
+
 <table class="table table-striped table-hover">
     <tr>
         <th>Name</th>
