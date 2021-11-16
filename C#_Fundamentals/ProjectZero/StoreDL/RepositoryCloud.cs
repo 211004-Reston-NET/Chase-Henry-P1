@@ -23,6 +23,11 @@ namespace StoreDL{
             throw new System.NotImplementedException();
         }
 
+        /// <summary>
+        /// Adds a customer to the database
+        /// </summary>
+        /// <param name="p_customer"></param>
+        /// <returns></returns>
         public Customer AddCustomer(Model.Customer p_customer)
         {
             _context.Customer.Add(
@@ -37,6 +42,10 @@ namespace StoreDL{
             return p_customer;
         }
 
+        /// <summary>
+        /// gets a list of all customers from the database
+        /// </summary>
+        /// <returns></returns>
         public List<Customer> GetAllCustomers()
         {
             return _context.Customer.Select(cust =>
@@ -55,6 +64,10 @@ namespace StoreDL{
             throw new System.NotImplementedException();
         }
 
+        /// <summary>
+        /// gets a list of all products from the database
+        /// </summary>
+        /// <returns></returns>
         public List<Products> GetAllProducts()
         {
             return _context.Products.Select(sf =>
@@ -67,6 +80,11 @@ namespace StoreDL{
             ).ToList();
         }
 
+        /// <summary>
+        /// adds a storefront to the database
+        /// </summary>
+        /// <param name="p_storefront"></param>
+        /// <returns></returns>
         public StoreFront AddStoreFronts(Model.StoreFront p_storefront)
         {
             _context.StoreFronts.Add(
@@ -80,6 +98,10 @@ namespace StoreDL{
             return p_storefront;
         }
 
+        /// <summary>
+        /// gets a list of all storefronts from the database
+        /// </summary>
+        /// <returns></returns>
         public List<StoreFront> GetAllStoreFronts()
         {
            return _context.StoreFronts.Select(sf =>
@@ -91,6 +113,10 @@ namespace StoreDL{
             ).ToList();
         }
 
+        /// <summary>
+        /// gets a list of all orders from the database
+        /// </summary>
+        /// <returns></returns>
         public List<Orders> GetAllOrders()
         {
             return _context.Orders.Select(ord =>
@@ -104,6 +130,11 @@ namespace StoreDL{
             ).ToList();
         }
 
+        /// <summary>
+        /// adds an order to the database
+        /// </summary>
+        /// <param name="p_orders"></param>
+        /// <returns></returns>
         public Orders PlaceOrders(Model.Orders p_orders)
         {
             _context.Orders.Add(
@@ -119,6 +150,10 @@ namespace StoreDL{
             return p_orders;
         }
 
+        /// <summary>
+        /// gets a list of all customer orders from the database
+        /// </summary>
+        /// <returns></returns>
         public List<Orders> GetAllCustomerOrders()
         {
             return _context.Orders.Select(ord =>
@@ -132,6 +167,10 @@ namespace StoreDL{
             ).ToList();
         }
 
+        /// <summary>
+        /// gets a list of all store orders from the database
+        /// </summary>
+        /// <returns></returns>
         public List<Orders> GetAllStoreOrders()
         {
             return _context.Orders.Select(ord =>
@@ -145,6 +184,11 @@ namespace StoreDL{
             ).ToList();
         }
 
+        /// <summary>
+        /// gets all store orders by id from the database
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         public List<Orders> GetAllStoreOrdersById(int p_id)
         {
             return _context.Orders.Where(ord => ord.StoreId == p_id)
@@ -158,6 +202,11 @@ namespace StoreDL{
                     }).ToList();
         }
 
+        /// <summary>
+        /// gets all customer orders by id from the database
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         public List<Orders> GetAllCustomerOrdersById(int p_id)
         {
             return _context.Orders.Where(ord => ord.CustId == p_id)
@@ -172,6 +221,10 @@ namespace StoreDL{
                     }).ToList();
         }
 
+        /// <summary>
+        /// gets a list of all lineitems from the database
+        /// </summary>
+        /// <returns></returns>
         public List<LineItems> GetAllLineItems()
         {
             return _context.LineItems.Select(li =>
@@ -182,6 +235,11 @@ namespace StoreDL{
             ).ToList();
         }
 
+        /// <summary>
+        /// deletes a selected customer from the database
+        /// </summary>
+        /// <param name="p_customer"></param>
+        /// <returns></returns>
         public Customer DeleteCustomer(Customer p_customer)
         {
             _context.Customer.Remove(p_customer);
@@ -189,16 +247,31 @@ namespace StoreDL{
             return p_customer;
         }
 
+        /// <summary>
+        /// gets a specific customer by a given id
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         public Customer GetCustomerById(int p_id)
         {
             return _context.Customer.Find(p_id);
         }
 
+        /// <summary>
+        /// gets a specific lineitem by a given id
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         public LineItems GetLineItemById(int p_id)
         {
             return _context.LineItems.Find(p_id);
         }
 
+        /// <summary>
+        /// gets a products by a given store id
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         public List<Products> GetProductByStoreId(int p_id)
         {
             return _context.Products.Where(ord => ord.StoreId == p_id)
@@ -212,6 +285,11 @@ namespace StoreDL{
                     }).ToList();
         }
 
+        /// <summary>
+        /// gets all lineitems by a given id from the database
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         public List<LineItems> GetAllLineItemsById(int p_id)
         {
             return _context.LineItems.Where(ord => ord.ItemId == p_id)
@@ -223,6 +301,11 @@ namespace StoreDL{
                     }).ToList();
         }
 
+        /// <summary>
+        /// joins products and lineitems into a new model called quantitymodel then returns the joined list
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         public List<QuantityModel> GetAllProductByStoreId(int p_id)
         {
                     var _listOfAllProductsByStoreId = (from p in _context.Products
@@ -241,6 +324,11 @@ namespace StoreDL{
             return _listOfAllProductsByStoreId;
         }
 
+        /// <summary>
+        /// adds +1 to quantity and then returns the updated value
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         public List<LineItems> AddInventory(int p_id)
         {
             var _listOfAllProductsByStoreId = (from li in _context.LineItems
@@ -255,6 +343,11 @@ namespace StoreDL{
             return _listOfAllProductsByStoreId;
         }
 
+        /// <summary>
+        /// WIP add invent class. 
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         public LineItems AddInvent(int p_id)
         {
             var _listOfAllProductsByStoreId = _context.LineItems.FirstOrDefault(a => a.ItemId == p_id);
@@ -263,6 +356,10 @@ namespace StoreDL{
             return _listOfAllProductsByStoreId;
         }
 
+        /// <summary>
+        /// returns a list of orders sorted by total price in descending order
+        /// </summary>
+        /// <returns></returns>
         public List<Orders> GetSortOrder()
         {
             var _sort = (from o in _context.Orders

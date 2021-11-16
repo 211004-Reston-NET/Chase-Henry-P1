@@ -6,17 +6,16 @@ namespace SBL
     public interface IStoreBL
     {
         /// <summary>
-        /// This will return a list of restaurants stored in the database
-        /// It will also capitalize every name of the restaurant
+        /// demo class
         /// </summary>
-        /// <returns>It will return a list of restaurants</returns>
+        /// <returns></returns>
         List<Store> GetAllStore();
 
         /// <summary>
-        /// Adds a restaurant to the database
+        /// demo class
         /// </summary>
-        /// <param name="p_rest">This is the restaurant we are adding</param>
-        /// <returns>It returns the added restaurant</returns>
+        /// <param name="p_rest"></param>
+        /// <returns></returns>
         Store AddStore(Store p_rest);
 
         /// <summary>
@@ -34,7 +33,7 @@ namespace SBL
         List<Customer> GetAllCustomers();
 
         /// <summary>
-        /// Will find multiple restaurant given a name
+        /// will return a customer based on name
         /// </summary>
         /// <param name="p_name">This is the string it will check to find restaurants if their name has those letters</param>
         /// <returns>It will return restaurants it found</returns>
@@ -55,82 +54,144 @@ namespace SBL
         List<Products> GetAllProducts();
 
         /// <summary>
-        /// Adds a restaurant to the database
+        /// Adds a store front to the database
         /// </summary>
         /// <param name="p_storefront">This is the restaurant we are adding</param>
         /// <returns>It returns the added restaurant</returns>
         StoreFront AddStoreFronts(StoreFront p_storefront);
 
-        /// <summary>
-        /// This will return a list of products stored in the database
-        /// It will also capitalize every name of the product
-        /// </summary>
-        /// <returns>It will return a list of products</returns>
+       /// <summary>
+       /// will return a list of storefronts from the database
+       /// </summary>
+       /// <returns></returns>
         List<StoreFront> GetAllStoreFronts();
 
         /// <summary>
-        /// Will find multiple restaurant given a name
+        /// Will find multiple storefronts given a name
         /// </summary>
         /// <param name="p_storefront">This is the string it will check to find restaurants if their name has those letters</param>
         /// <returns>It will return restaurants it found</returns>
         List<StoreFront> GetStoreFront(string p_storefront);
 
-        /// <summary>
-        /// This will return a list of restaurants stored in the database
-        /// It will also capitalize every name of the restaurant
-        /// </summary>
-        /// <returns>It will return a list of restaurants</returns>
+       /// <summary>
+       /// will return a list of all orders in the database.
+       /// </summary>
+       /// <returns></returns>
         List<Orders> GetAllOrders();
 
          /// <summary>
-        /// Adds a restaurant to the database
+        /// Adds a order to the database
         /// </summary>
         /// <param name="p_orders">This is the restaurant we are adding</param>
         /// <returns>It returns the added restaurant</returns>
         Orders PlaceOrders(Orders p_orders);
 
          /// <summary>
-        /// Will find multiple restaurant given a name
+        /// Will find multiple orders given a name
         /// </summary>
         /// <param name="p_orders">This is the string it will check to find restaurants if their name has those letters</param>
         /// <returns>It will return restaurants it found</returns>
         List<Orders> GetOrders(string p_orders);
 
         /// <summary>
-        /// This will return a list of restaurants stored in the database
-        /// It will also capitalize every name of the restaurant
+        /// This will return a list of all customer orders
         /// </summary>
-        /// <returns>It will return a list of restaurants</returns>
+        /// <returns></returns>
         List<Orders> GetAllCustomerOrders();
 
         /// <summary>
+        /// this will return a list of all store orders
         /// </summary>
-        /// <returns>It will return a list of restaurants</returns>
+        /// <returns></returns>
         List<Orders> GetAllStoreOrders();
 
         /// <summary>
-        /// Will find multiple restaurant given a name
+        /// gets a customers orders by name
         /// </summary>
         /// <param name="p_name">This is the string it will check to find restaurants if their name has those letters</param>
         /// <returns>It will return restaurants it found</returns>
         List<Orders> GetCustomerOrders(int p_name);
+
+        /// <summary>
+        /// Gets all store orders by given id
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         List<Orders> GetAllStoreOrdersById(int p_id);
+        
+        /// <summary>
+        /// gets all customer orders by given id
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         List<Orders> GetAllCustomerOrdersById(int p_id);
 
+        /// <summary>
+        /// Gets a list of all line items from teh database
+        /// </summary>
+        /// <returns></returns>
         List<LineItems> GetAllLineItems();
+
+        /// <summary>
+        /// Deletes a customer from the database
+        /// </summary>
+        /// <param name="p_customer"></param>
+        /// <returns></returns>
         Customer DeleteCustomer(Customer p_customer);
 
+        /// <summary>
+        /// gets a customer by given id
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         Customer GetCustomerById(int p_id);
 
+        /// <summary>
+        /// gets a specific product by given store id
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         List<Products> GetProductByStoreId(int p_id);
+
+        /// <summary>
+        /// gets all products by given store id
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         List<QuantityModel> GetAllProductByStoreId(int p_id);
+
+        /// <summary>
+        /// Gets a list of lineitems by given id
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         List<LineItems> GetAllLineItemsById(int p_id);
 
+        /// <summary>
+        /// Increases quantity by +1 then sends the updated value back to the database.
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         List<LineItems> AddInventory(int p_id);
 
+        /// <summary>
+        /// Increases quantity by +1 then sends the updated value back to the database.
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         LineItems AddInvent(int p_id);
+
+        /// <summary>
+        /// Gets a lineitem by a given id
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         LineItems GetLineItemById(int p_id);
 
+        /// <summary>
+        /// Sorts orders by cost in descending order.
+        /// </summary>
+        /// <returns></returns>
         List<Orders> GetSortOrder();
 
     }
