@@ -21,7 +21,6 @@ namespace StoreWebUI.Controllers
             _storeBL = p_storeBL;
         }
 
-        // GET: HomeController1
         public ActionResult Index()
         {
 
@@ -32,7 +31,6 @@ namespace StoreWebUI.Controllers
         public ActionResult Delete(int p_id)
         {
             return View(new CustomerVM(_storeBL.GetCustomerById(p_id)));
-            //return View();
         }
 
         public ActionResult Search(string SearchString)
@@ -40,7 +38,6 @@ namespace StoreWebUI.Controllers
             return View(_context.Customer.Where( x => x.Name == SearchString)
                 .Select(cust => new CustomerVM(cust))
                 .ToList());
-            //return View();
         }
 
         [HttpPost]
@@ -69,13 +66,11 @@ namespace StoreWebUI.Controllers
             return View();
         }
 
-        // GET: HomeController1/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: HomeController1/Create
         [HttpGet]
         public IActionResult Create()
         {
@@ -101,13 +96,11 @@ namespace StoreWebUI.Controllers
             return View();
         }
 
-        // GET: HomeController1/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: HomeController1/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)

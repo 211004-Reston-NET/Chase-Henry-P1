@@ -33,11 +33,6 @@ namespace StoreWebUI.Controllers
 
             _storeBL.AddInvent(p_id);
             return RedirectToAction(nameof(Index));
-
-            //return View(_storeBL.AddInvent(p_id));
-            //return View(_storeBL.AddInventory(p_id)
-            //    .Select(li => new LineItemVM(li))
-            //    .ToList());
         }
 
         public ActionResult ReplenishInventory(int p_id)
