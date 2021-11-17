@@ -11,26 +11,44 @@
 <form asp-action="Create">
     <div asp-validation-summary="ModelOnly"></div>
     <div class="mb-3">
-        <label asp-for="Total" class="form-label">Total</label>
-        <input asp-for="Total" type="text" class="form-control">
+        <label asp-for="Total" class="form-label">Total Price</label>
+        <select asp-for="Total" type="text" class="form-control">
+            <option>100</option>
+            <option>150</option>
+            <option>200</option>
+        </select>
         <span asp-validation-for="Total" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
         <label asp-for="CustId" class="form-label">Customer ID</label>
-        <input asp-for="CustId" type="text" class="form-control">
+        <input asp-for="CustId" type="text" class="form-control"> 
         <span asp-validation-for="CustId" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
         <label asp-for="StoreId" class="form-label">Store ID</label>
-        <input asp-for="StoreId" type="text" class="form-control">
+        <select asp-for="StoreId" type="text" class="form-control">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+        </select>
         <span asp-validation-for="StoreId" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
         <label asp-for="prodId" class="form-label">Product ID</label>
-        <input asp-for="prodId" type="text" class="form-control">
+        <select asp-for="prodId" type="text" class="form-control">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+        </select>
         <span asp-validation-for="prodId" class="text-danger"></span>
     </div>
 
