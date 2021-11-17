@@ -8,6 +8,8 @@ using StoreModels;
 using SBL;
 using StoreWebUI.Models;
 using StoreDL;
+using Serilog;
+using Serilog.Formatting.Json;
 
 namespace StoreWebUI.Controllers
 {
@@ -23,36 +25,66 @@ namespace StoreWebUI.Controllers
 
         public ActionResult Index()
         {
-
-            return View(_storeBL.GetAllCustomers()
-                .Select(cust => new CustomerVM(cust))
-                .ToList());
+            try
+            {
+                return View(_storeBL.GetAllCustomers()
+                    .Select(cust => new CustomerVM(cust))
+                    .ToList());
+            }
+            catch
+            {
+                return View();
+            }
         }
         public ActionResult Delete(int p_id)
         {
-            return View(new CustomerVM(_storeBL.GetCustomerById(p_id)));
+            try
+            {
+                return View(new CustomerVM(_storeBL.GetCustomerById(p_id)));
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         public ActionResult Search(string SearchString)
         {
-            return View(_context.Customer.Where( x => x.Name == SearchString)
-                .Select(cust => new CustomerVM(cust))
-                .ToList());
+            try
+            {
+                return View(_context.Customer.Where(x => x.Name == SearchString)
+                    .Select(cust => new CustomerVM(cust))
+                    .ToList());
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int CustId, IFormCollection collection)
-        {
+        { 
+            Log.Logger = new LoggerConfiguration()
+                .Enrich.FromLogContext()
+                .WriteTo.File(new JsonFormatter(),"Logs/customerlog.json")
+                .CreateLogger();
             try
             {
+                Log.Information("Deleting customer");
                 Customer toBeDeleted = _storeBL.GetCustomerById(CustId);
                 _storeBL.DeleteCustomer(toBeDeleted);
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
+                Log.Information("Deletion Failed");
                 return View();
+            }
+            finally
+            {
+                Log.CloseAndFlush();
             }
         }
 

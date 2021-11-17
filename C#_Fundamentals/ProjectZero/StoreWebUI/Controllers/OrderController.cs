@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using StoreModels;
 using SBL;
 using StoreWebUI.Models;
+using Serilog;
+using Serilog.Formatting.Json;
 
 namespace StoreWebUI.Controllers
 {
@@ -20,23 +22,44 @@ namespace StoreWebUI.Controllers
         // GET: OrderController
         public ActionResult Index()
         {
-            return View(_storeBL.GetAllOrders()
-                .Select(ord => new OrderVM(ord))
-                .ToList());
+            try
+            {
+                return View(_storeBL.GetAllOrders()
+                    .Select(ord => new OrderVM(ord))
+                    .ToList());
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         public ActionResult StoreOrders(int p_id)
         {
-            return View(_storeBL.GetAllStoreOrdersById(p_id)
-                .Select(ord => new OrderVM(ord))
-                .ToList());
+            try
+            {
+                return View(_storeBL.GetAllStoreOrdersById(p_id)
+                    .Select(ord => new OrderVM(ord))
+                    .ToList());
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         public ActionResult CustomerOrders(int p_id)
         {
-            return View(_storeBL.GetAllCustomerOrdersById(p_id)
-                .Select(ord => new OrderVM(ord))
-                .ToList());
+            try
+            {
+                return View(_storeBL.GetAllCustomerOrdersById(p_id)
+                    .Select(ord => new OrderVM(ord))
+                    .ToList());
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         // GET: OrderController/Details/5
@@ -76,9 +99,26 @@ namespace StoreWebUI.Controllers
 
         public IActionResult SortOrder()
         {
-            return View(_storeBL.GetSortOrder()
-                .Select(ord => new OrderVM(ord))
-                .ToList());
+            Log.Logger = new LoggerConfiguration()
+                .Enrich.FromLogContext()
+                .WriteTo.File(new JsonFormatter(),"Logs/orderlog.json")
+                .CreateLogger();
+            try
+            {
+                Log.Information("Sorting Order");
+                return View(_storeBL.GetSortOrder()
+                    .Select(ord => new OrderVM(ord))
+                    .ToList());
+            }
+            catch
+            {
+                Log.Fatal("Sorting order Failed");
+                return View();
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+            }
         }
 
 

@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using SBL;
 using StoreWebUI.Models;
 using StoreDL;
+using Serilog;
+using Serilog.Formatting.Json;
 
 namespace StoreWebUI.Controllers
 {
@@ -23,23 +25,53 @@ namespace StoreWebUI.Controllers
         // GET: HomeController1
         public ActionResult Index()
         {
-            return View(_storeBL.GetAllLineItems()
-                .Select(li => new LineItemVM(li))
-                .ToList());
+            try
+            {
+                return View(_storeBL.GetAllLineItems()
+                    .Select(li => new LineItemVM(li))
+                    .ToList());
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         public ActionResult AddInventory(int p_id)
         {
-
-            _storeBL.AddInvent(p_id);
-            return RedirectToAction(nameof(Index));
+            Log.Logger = new LoggerConfiguration()
+                .Enrich.FromLogContext()
+                .WriteTo.File(new JsonFormatter(),"Logs/lineitemlog.json")
+                .CreateLogger();
+            try
+            {
+                Log.Information("Adding Inventory");
+                _storeBL.AddInvent(p_id);
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                Log.Information("Adding Inventory Failed");
+                return View();
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+            }
         }
 
         public ActionResult ReplenishInventory(int p_id)
         {
-            return View(_storeBL.GetAllLineItemsById(p_id)
-                .Select(li => new LineItemVM(li))
-                .ToList());
+            try
+            {
+                return View(_storeBL.GetAllLineItemsById(p_id)
+                    .Select(li => new LineItemVM(li))
+                    .ToList());
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         // GET: LineItemController/Details/5

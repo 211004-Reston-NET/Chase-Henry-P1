@@ -22,25 +22,44 @@ namespace StoreWebUI.Controllers
         // GET: HomeController1
         public ActionResult Index(int p_id)
         {
-
-            return View(_storeBL.GetAllProductByStoreId(p_id)
-                .Select(store => new QuantityVM(store))
-                .ToList());
+            try
+            {
+                return View(_storeBL.GetAllProductByStoreId(p_id)
+                    .Select(store => new QuantityVM(store))
+                    .ToList());
+            }
+            catch
+            {
+                return View();
+            }
 
         }
 
         public ActionResult ReplenishInventory(int p_id)
         {
-            return View(_storeBL.GetAllLineItemsById(p_id)
-                .Select(li => new LineItemVM(li))
-                .ToList());
+            try
+            {
+                return View(_storeBL.GetAllLineItemsById(p_id)
+                    .Select(li => new LineItemVM(li))
+                    .ToList());
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         public ActionResult AddInventory(int p_id)
         {
-
-            _storeBL.AddInvent(p_id);
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                _storeBL.AddInvent(p_id);
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
 
         }
 
