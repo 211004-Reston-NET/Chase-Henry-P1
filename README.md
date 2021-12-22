@@ -6,9 +6,11 @@
 - https://211004webapp.azurewebsites.net/
 
 ## Description
-Store Manager App is a POS system which will allow a user to view a fake store system that allows for the user to play the role of an employee who can place orders for a customer.
+The store app is a software that helps customers purchase products from your business. Designed with functionality that would make virtual shopping much simpler! Customer features include: account creation, order placements, and order history. It also comes with admin functionality that let's store owners replenish inventory and view the specific store's order history!
+
+## User Story
 The Database is MS SQL provided by Microsoft Azure.   
-You will be able to: 
+Users will be able to: 
 
 - View Store locations
 - View inventory at a given store
